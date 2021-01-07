@@ -2,12 +2,11 @@ import { Container, Row, Col } from 'react-bootstrap'
 
 import Link from 'next/link'
 import { IoLogoGithub, IoLogoInstagram, IoIosHeart } from 'react-icons/io'
+import { useRouter } from 'next/router'
 
-type Props = {
-  readonly isDashboard?: boolean
-}
-
-const Footer: React.FC<Props> = ({ isDashboard = false }) => {
+const Footer = () => {
+  const { asPath } = useRouter()
+  const isDashboard = asPath.split('/')[1] === 'dashboard' ? true : false
   return (
     <footer className="footer position-relative bg-dark text-light">
       <Container>
@@ -43,12 +42,12 @@ const Footer: React.FC<Props> = ({ isDashboard = false }) => {
                 <p className="font-weight-bold ">Pages</p>
                 <ul className="link-footer p-0 mb-0">
                   <li>
-                    <a href="#" className="text-decoration-none text-light">
+                    <a className="text-decoration-none text-light cursor-pointer" id="lk">
                       About us
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="text-decoration-none text-light">
+                    <a className="text-decoration-none text-light cursor-pointer" id="lk">
                       Contact us
                     </a>
                   </li>
@@ -102,6 +101,11 @@ const Footer: React.FC<Props> = ({ isDashboard = false }) => {
           </Col>
         </Row>
       </Container>
+      <style jsx>{`
+        #lk {
+          cursor: pointer;
+        }
+      `}</style>
     </footer>
   )
 }
