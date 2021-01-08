@@ -34,7 +34,7 @@ const Header = () => {
               <a className={`nav-link mr-3 ${asPath === '/faq' ? 'active' : null}`}>Faq</a>
             </Link>
           </Nav>
-          <Link href="/signin">
+          <Link href="/login">
             <Button size="sm" className="ml-2" variant="outline-success">
               masuk sebagai penjual <IoIosLogIn />
             </Button>

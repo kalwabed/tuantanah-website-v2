@@ -1,9 +1,11 @@
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'react-toastify/dist/ReactToastify.min.css'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { ReactQueryDevtools } from 'react-query/devtools'
-import 'bootstrap/dist/css/bootstrap.min.css'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { Hydrate } from 'react-query/hydration'
+import { ToastContainer, Slide } from 'react-toastify'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const queryClient = new QueryClient()
@@ -22,6 +24,17 @@ function MyApp({ Component, pageProps }: AppProps) {
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
           <Component {...pageProps} />
+          <ToastContainer
+            position="top-center"
+            autoClose={5000}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            limit={1}
+            transition={Slide}
+            pauseOnFocusLoss
+            draggable
+          />
           <ReactQueryDevtools />
         </Hydrate>
       </QueryClientProvider>

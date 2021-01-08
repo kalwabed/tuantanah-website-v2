@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@hookform/error-message": "^0.0.5",
     "bootstrap": "^4.5.3",
     "gridjs": "^3.2.1",
     "gridjs-react": "^3.2.1",
