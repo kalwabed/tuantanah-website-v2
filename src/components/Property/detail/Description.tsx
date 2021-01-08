@@ -6,7 +6,7 @@ import LazyLoad from 'react-lazyload'
 
 const Description = ({ description }: Pick<Property, 'description'>) => {
   return (
-    <section className="section mt-3 mb-4">
+    <div className="section mt-3 mb-4">
       <Container>
         <Row>
           <Col as="h2">
@@ -21,7 +21,7 @@ const Description = ({ description }: Pick<Property, 'description'>) => {
           </LazyLoad>
         </Card>
       </Container>
-    </section>
+    </div>
   )
 }
 

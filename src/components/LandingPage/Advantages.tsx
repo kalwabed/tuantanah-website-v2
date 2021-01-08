@@ -2,9 +2,9 @@ import { IoIosRocket } from 'react-icons/io'
 import { Row, Col, Container } from 'react-bootstrap'
 import { FaTh, FaRegHandshake } from 'react-icons/fa'
 
-const SectionAdvantages = () => {
+const Advantages = () => {
   return (
-    <section className="section section-lg">
+    <div className="section section-lg">
       <Container>
         <Row className="text-center">
           <Col md={4} sm={4}>
@@ -32,8 +32,8 @@ const SectionAdvantages = () => {
           </Col>
         </Row>
       </Container>
-    </section>
+    </div>
   )
 }
 
-export default SectionAdvantages
+export default Advantages

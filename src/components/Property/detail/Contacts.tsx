@@ -5,7 +5,7 @@ import { Property } from '@/shared/interface'
 
 const Contacts = ({ contact }: Pick<Property, 'contact'>) => {
   return (
-    <section className="section my-2">
+    <div className="section my-2">
       <Container>
         <Row>
           <Col as="h2">
@@ -48,7 +48,7 @@ const Contacts = ({ contact }: Pick<Property, 'contact'>) => {
           </LazyLoad>
         </Card>
       </Container>
-    </section>
+    </div>
   )
 }
 

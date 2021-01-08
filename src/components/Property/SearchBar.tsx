@@ -7,7 +7,7 @@ const SearchBar = ({ propertyLength = 0 }) => {
   }
 
   return (
-    <section className="section section-sm">
+    <div className="section section-sm">
       <Form onSubmit={e => searchOnSubmit(e)}>
         <Form.Row className="justify-content-between">
           <Col xs={8} md={5}>
@@ -28,7 +28,7 @@ const SearchBar = ({ propertyLength = 0 }) => {
           </Col>
         </Form.Row>
       </Form>
-    </section>
+    </div>
   )
 }
 

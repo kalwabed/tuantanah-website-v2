@@ -9,7 +9,7 @@ const About = (props: Property) => {
   const { userId, title, mainPicture, location, size, price, status } = props
   if (!userId) return null
   return (
-    <section className="section">
+    <div className="section">
       <Container>
         <Row className="mt-3">
           <Col>
@@ -71,7 +71,7 @@ const About = (props: Property) => {
           </Col>
         </Row>
       </Container>
-    </section>
+    </div>
   )
 }
 

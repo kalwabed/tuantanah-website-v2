@@ -6,7 +6,7 @@ import { Fade } from 'react-awesome-reveal'
 
 const Gallery = ({ gallery }: Pick<Property, 'gallery'>) => {
   return (
-    <section className="section mt-2">
+    <div className="section mt-2">
       <Container>
         <Row>
           <Col as="h2">
@@ -41,7 +41,7 @@ const Gallery = ({ gallery }: Pick<Property, 'gallery'>) => {
           </Fade>
         </Row>
       </Container>
-    </section>
+    </div>
   )
 }
 

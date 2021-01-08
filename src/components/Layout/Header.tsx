@@ -10,12 +10,14 @@ const Header = () => {
     <Navbar bg="dark" variant="dark" expand="md" sticky="top" className="nav-font">
       <Container>
         <Link href="/">
-          <Navbar.Brand>
-            <img src="/static/logo.png" alt="logo" className="d-inline-block" width="22" height="22" />
-            <span style={{ marginLeft: '2px' }} className="logo-font">
-              tuantanah
-            </span>
-          </Navbar.Brand>
+          <a>
+            <Navbar.Brand className="pointer">
+              <img src="/static/logo.png" alt="logo" className="d-inline-block" width="22" height="22" />
+              <span style={{ marginLeft: '2px' }} className="logo-font">
+                tuantanah
+              </span>
+            </Navbar.Brand>
+          </a>
         </Link>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
@@ -39,6 +41,11 @@ const Header = () => {
           </Link>
         </Navbar.Collapse>
       </Container>
+      <style jsx>{`
+        .pointer {
+          cursor: pointer;
+        }
+      `}</style>
     </Navbar>
   )
 }
