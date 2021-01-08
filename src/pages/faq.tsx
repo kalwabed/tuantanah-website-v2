@@ -9,13 +9,13 @@ const Faq = () => {
       <Head>
         <title>Faq | TuanTanah</title>
       </Head>
-      <main className="my-3">
+      <div className="my-3">
         <Jumbotron fluid>
           <div className="text-center">
             Anda sampai pada halaman <b>Faq</b>
           </div>
         </Jumbotron>
-      </main>
+      </div>
     </Layout>
   )
 }
