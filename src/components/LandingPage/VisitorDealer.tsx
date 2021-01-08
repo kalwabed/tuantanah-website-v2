@@ -5,9 +5,9 @@ import { IoIosArrowDropright, IoMdLogIn } from 'react-icons/io'
 import Link from 'next/link'
 import LazyLoad from 'react-lazyload'
 
-const SectionVisLer = ({ refVisitorDealer }: { refVisitorDealer: any | null }) => {
+const VisitorDealer = ({ refVisitorDealer }: { refVisitorDealer: any | null }) => {
   return (
-    <section className="section section-lg bg-dark text-white" ref={refVisitorDealer}>
+    <div className="section section-lg bg-dark text-white" ref={refVisitorDealer}>
       <Container>
         <Row className="text-center mb-5">
           <Col lg={10} xl={12}>
@@ -66,8 +66,8 @@ const SectionVisLer = ({ refVisitorDealer }: { refVisitorDealer: any | null }) =
           </Col>
         </Row>
       </Container>
-    </section>
+    </div>
   )
 }
 
-export default SectionVisLer
+export default VisitorDealer

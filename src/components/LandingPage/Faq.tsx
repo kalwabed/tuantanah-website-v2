@@ -3,9 +3,9 @@ import { Container, Row, Col, Button, Spinner } from 'react-bootstrap'
 
 import LazyLoad from 'react-lazyload'
 
-const SectionFaq = () => {
+const Faq = () => {
   return (
-    <section className="section section-lg bg-dark text-light">
+    <div className="section section-lg bg-dark text-light">
       <Container>
         <Row>
           <Col md={12} sm={12} className="text-center">
@@ -23,8 +23,8 @@ const SectionFaq = () => {
           </Col>
         </Row>
       </Container>
-    </section>
+    </div>
   )
 }
 
-export default SectionFaq
+export default Faq

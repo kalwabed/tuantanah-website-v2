@@ -1,11 +1,16 @@
-import Header from './Header'
+import dynamic from 'next/dynamic'
 
-const Index = ({ children }) => {
+const Footer = dynamic(() => import('./Footer').then(res => res.default))
+const Header = dynamic(() => import('./Header').then(res => res.default))
+
+const Layout = ({ children }) => {
   return (
     <>
-      <Header></Header>
+      <Header />
+      <main>{children}</main>
+      <Footer />
     </>
   )
 }
 
-export default Index
+export default Layout
