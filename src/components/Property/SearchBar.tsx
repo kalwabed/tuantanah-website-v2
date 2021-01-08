@@ -1,9 +1,7 @@
 import { Form, Col, FormControl, Button, Badge, InputGroup } from 'react-bootstrap'
 import { IoIosSearch } from 'react-icons/io'
 
-// import { fetchAllProperty } from '../../utils/fetchAPI'
-
-const SearchBar = () => {
+const SearchBar = ({ propertyLength = 0 }) => {
   const searchOnSubmit = (e: React.FormEvent<HTMLElement>) => {
     e.preventDefault()
   }
@@ -22,22 +20,8 @@ const SearchBar = () => {
               </InputGroup.Append>
             </InputGroup>
           </Col>
-          {/* <Col xs={2} md={3} className="mb-2">
-            <Button onClick={onUpdate} variant="dark">
-              Refresh <IoIosRepeat />
-            </Button>
-          </Col> */}
           <Col md="auto" className="d-sm-flex d-md-block justify-content-center">
-            {/* <Button variant="outline-dark">
-              <Badge variant="light">0</Badge> <IoIosHeart />
-            </Button> */}
-            <Badge variant="outline-light" className="mx-1">
-              41 items
-              {/* TODO sum the properties */}
-            </Badge>
-            <Badge variant="outline-light" className="mx-1">
-              13 cities
-            </Badge>
+            <Badge variant="outline-light">founds {propertyLength} property</Badge>
             <Badge variant="outline-light" className="ml-1">
               <img src="/static/logo.png" alt="logo" width="20" height="20" />
             </Badge>

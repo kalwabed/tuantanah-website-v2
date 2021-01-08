@@ -1,12 +1,11 @@
 import type { GetStaticProps } from 'next'
-import dynamic from 'next/dynamic'
 import { Container, Spinner } from 'react-bootstrap'
 
 import Layout from '@/components/Layout'
 import { Property as PropertyType } from '@/shared/interface'
 import { getAllProperty } from '@/lib/PropertyApi'
 import PropertyList from '@/components/Property/List'
-const SearchBar = dynamic(() => import('@/components/Property/SearchBar').then(pg => pg.default))
+import SearchBar from '@/components/Property/SearchBar'
 
 interface Props {
   properties: PropertyType[]
@@ -17,7 +16,7 @@ const Property = ({ properties }: Props) => {
     <Layout>
       <div className="mb-3">
         <Container>
-          <SearchBar />
+          <SearchBar propertyLength={properties.length} />
           {!properties && (
             <span className="text-center">
               Memuat <Spinner animation="grow" />
@@ -31,9 +30,9 @@ const Property = ({ properties }: Props) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const data = await getAllProperty()
+  const { properties } = await getAllProperty()
   return {
-    props: { properties: data.properties || null },
+    props: { properties: properties || null },
     revalidate: 1
   }
 }

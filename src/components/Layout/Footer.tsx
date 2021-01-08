@@ -42,14 +42,14 @@ const Footer = () => {
                 <p className="font-weight-bold ">Pages</p>
                 <ul className="link-footer p-0 mb-0">
                   <li>
-                    <a className="text-decoration-none text-light cursor-pointer" id="lk">
-                      About us
-                    </a>
+                    <Link href="/">
+                      <a className="text-decoration-none text-light">Home</a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="text-decoration-none text-light cursor-pointer" id="lk">
-                      Contact us
-                    </a>
+                    <Link href="/property">
+                      <a className="text-decoration-none text-light">Property</a>
+                    </Link>
                   </li>
                   <li>
                     <Link href="/faq">
