@@ -6,16 +6,16 @@ import Link from 'next/link'
 import ButtonLoading from '@/shared/ButtonLoading'
 import { useLogin } from '@/sdk/auth'
 
-interface SignInForm {
+interface Form {
   email: string
   password: string
 }
 
 const LoginForm = () => {
   const { mutateUser, isLoading } = useLogin()
-  const { register, handleSubmit, watch, errors } = useForm<SignInForm>()
+  const { register, handleSubmit, watch, errors } = useForm<Form>()
 
-  const onSubmit = async (data: SignInForm) => {
+  const onSubmit = async (data: Form) => {
     toast.dismiss()
     const res = await mutateUser({ email: data.email, password: data.password })
     if (res.success) {

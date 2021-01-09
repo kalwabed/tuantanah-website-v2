@@ -17,6 +17,6 @@ export async function userLogin({
   try {
     return await fetcher({ route: '/d/signin', data: { email, password } })
   } catch (err) {
-    console.error(err)
+    throw new Error(err.toString())
   }
 }
