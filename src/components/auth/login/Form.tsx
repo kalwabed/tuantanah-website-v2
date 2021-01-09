@@ -1,9 +1,10 @@
 import { Badge, Form } from 'react-bootstrap'
 import { ErrorMessage } from '@hookform/error-message'
-import { toast } from 'react-toastify'
+import { toast } from 'react-hot-toast'
 import { useForm } from 'react-hook-form'
 import Link from 'next/link'
 import ButtonLoading from '@/shared/ButtonLoading'
+import { useLogin } from '@/sdk/auth'
 
 interface SignInForm {
   email: string
@@ -11,27 +12,19 @@ interface SignInForm {
 }
 
 const LoginForm = () => {
+  const { mutateUser, isLoading } = useLogin()
   const { register, handleSubmit, watch, errors } = useForm<SignInForm>()
-  const isLoading = false
 
   const onSubmit = async (data: SignInForm) => {
-    // toast.dismiss()
-    toast('Sayangkuu')
-    // const res = await mutate({ email: data.email, password: data.password })
-    // if (res?.success === true) {
-    //   // SUKSES LOGIN
-    //   setToken(res.token!, true)
-    //   setIsAuthenticated(true)
-    // } else {
-    //   // GAGAL LOGIN
-    //   if (res?.errorCode === 400) {
-    //     // bad request
-    //     toast.warning(res?.msg)
-    //   } else {
-    //     // unauthorized
-    //     toast.info(res?.msg)
-    //   }
-    // }
+    toast.dismiss()
+    const res = await mutateUser({ email: data.email, password: data.password })
+    if (res.success) {
+      // setToken(user.token!, true)
+      toast.success('Berhasil login')
+    } else {
+      // fail LOGIN
+      toast.error(res.response.msg)
+    }
   }
 
   return (
@@ -40,7 +33,7 @@ const LoginForm = () => {
         <Form.Label>Alamat Email</Form.Label>
         <Form.Control
           ref={register({
-            required: 'Mohon sertakan Alamat Email yang valid',
+            required: 'Mohon sertakan alamat Email yang valid',
             pattern: {
               value: /\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b/gi,
               message: 'Mohon sertakan format Alamat Email yang valid'

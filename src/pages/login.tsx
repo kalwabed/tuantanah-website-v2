@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { toast } from 'react-toastify'
+import { toast } from 'react-hot-toast'
 import cookies from 'js-cookie'
 
 import LoginCard from '@/components/auth/login/Card'
