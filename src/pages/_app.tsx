@@ -21,7 +21,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <QueryClientProvider client={queryClient}>
         <Component {...pageProps} />
-        <Toaster />
+        <Toaster toastOptions={{ duration: 5000 }} />
         <ReactQueryDevtools />
       </QueryClientProvider>
       <style jsx global>{`

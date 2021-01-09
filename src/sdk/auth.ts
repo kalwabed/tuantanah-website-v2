@@ -1,7 +1,7 @@
 import { useMutation } from 'react-query'
 import jwt from 'jsonwebtoken'
 
-import { userLogin } from '@/lib/AuthApi'
+import { userLogin, userSignUp } from '@/lib/AuthApi'
 import { useCookie, useLocalStorage } from '@/lib/auth'
 import { v4 } from 'uuid'
 
@@ -17,4 +17,15 @@ export const useLogin = () => {
     }
   })
   return { mutateUser: mutateAsync, user: data, isLoading }
+}
+
+export const useSignUp = () => {
+  const { data, mutateAsync, isLoading } = useMutation(userSignUp, {
+    onSuccess: res => {
+      // TODO: redirect after user register
+      console.log(res)
+    }
+  })
+
+  return { mutateUserSignUp: mutateAsync, isLoading, user: data }
 }

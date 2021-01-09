@@ -3,6 +3,8 @@ import { ErrorMessage } from '@hookform/error-message'
 import { toast } from 'react-hot-toast'
 import { useForm } from 'react-hook-form'
 import Link from 'next/link'
+import Router from 'next/router'
+
 import ButtonLoading from '@/shared/ButtonLoading'
 import { useLogin } from '@/sdk/auth'
 
@@ -21,6 +23,7 @@ const LoginForm = () => {
     if (res.success) {
       // setToken(user.token!, true)
       toast.success('Berhasil login')
+      Router.push('/faq')
     } else {
       // fail LOGIN
       toast.error(res.response.msg)
