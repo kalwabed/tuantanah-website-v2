@@ -10,7 +10,7 @@ export interface AuthCtx {
 }
 
 const AuthContext = createContext<AuthCtx | undefined>(undefined)
-
+// TODO: find solution to fix the 'blink' on user session on some pages
 const Provider = ({ children }) => {
   const { checkUserSession } = useAuth()
 

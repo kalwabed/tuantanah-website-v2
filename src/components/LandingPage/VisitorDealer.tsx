@@ -55,7 +55,7 @@ const VisitorDealer = ({ refVisitorDealer }: { refVisitorDealer: any | null }) =
                     Mau ikut pasang iklan properti anda di <span className="text-success logo-font">tuantanah</span>?
                     Silahkan daftar dan ikuti arahan selanjutnya.
                   </p>
-                  <Link href="/signin">
+                  <Link href="/login">
                     <Button size="sm" variant="success">
                       Masuk <IoMdLogIn />
                     </Button>

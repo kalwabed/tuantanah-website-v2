@@ -1,5 +1,5 @@
 import { ROUTE_USER_AFTER_AUTH } from '@/constants'
-import { useCookie } from '@/lib/envUtil'
+import { useCookie, useLocalStorage } from '@/lib/envUtil'
 import { useRouter } from 'next/router'
 
 const useAuth = () => {
@@ -17,11 +17,16 @@ const useAuth = () => {
     } else if (!useCookie('get') && isDashboard) {
       // user is try to access dashboard but without token
       router.replace('/')
-    } else {
-      return
     }
   }
-  return { checkUserSession }
+
+  const userSignOut = () => {
+    useCookie('remove')
+    useLocalStorage('remove')
+    router.replace(router.asPath)
+  }
+
+  return { checkUserSession, userSignOut }
 }
 
 export default useAuth
