@@ -1,9 +1,10 @@
+import 'bootstrap/dist/css/bootstrap.min.css'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { ReactQueryDevtools } from 'react-query/devtools'
-import 'bootstrap/dist/css/bootstrap.min.css'
 import { QueryClient, QueryClientProvider } from 'react-query'
-import { Hydrate } from 'react-query/hydration'
+import { Toaster } from 'react-hot-toast'
+import AuthContext from '@/contexts/AuthContext'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const queryClient = new QueryClient()
@@ -20,10 +21,11 @@ function MyApp({ Component, pageProps }: AppProps) {
         <title>TuanTanah</title>
       </Head>
       <QueryClientProvider client={queryClient}>
-        <Hydrate state={pageProps.dehydratedState}>
+        <AuthContext.Provider>
           <Component {...pageProps} />
-          <ReactQueryDevtools />
-        </Hydrate>
+        </AuthContext.Provider>
+        <Toaster toastOptions={{ duration: 5000 }} />
+        <ReactQueryDevtools />
       </QueryClientProvider>
       <style jsx global>{`
         body {

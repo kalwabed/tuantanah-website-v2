@@ -2,8 +2,16 @@ import { Jumbotron } from 'react-bootstrap'
 import Head from 'next/head'
 
 import Layout from '@/components/Layout'
+import { useAuthContext } from '@/contexts/AuthContext'
+import { useEffect } from 'react'
 
 const Faq = () => {
+  const { getUserCred } = useAuthContext()
+
+  useEffect(() => {
+    console.log(getUserCred())
+  }, [])
+
   return (
     <Layout>
       <Head>
