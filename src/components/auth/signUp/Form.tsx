@@ -1,7 +1,9 @@
+import { ROUTE_USER_AFTER_AUTH } from '@/constants'
 import { useSignUp } from '@/sdk/auth'
 import ButtonLoading from '@/shared/ButtonLoading'
 import { ErrorMessage } from '@hookform/error-message'
 import Link from 'next/link'
+import Router from 'next/router'
 import { useState } from 'react'
 import { Badge, Form } from 'react-bootstrap'
 import { useForm } from 'react-hook-form'
@@ -36,6 +38,8 @@ const SignUpForm = () => {
       setValue('password', '')
       setValue('repeatPassword', '')
       setCheck(false)
+
+      Router.push(ROUTE_USER_AFTER_AUTH)
     } else {
       setValue('repeatPassword', '')
       toast.error(res.response.msg)
@@ -150,7 +154,7 @@ const SignUpForm = () => {
           custom
           required
           onClick={() => setCheck(!check)}
-          checked={check}
+          defaultChecked={check}
           id="checkbox"
           type="checkbox"
           label="Setuju dengan syarat dan ketentuan kami"

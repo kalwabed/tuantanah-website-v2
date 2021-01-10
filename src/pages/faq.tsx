@@ -6,6 +6,7 @@ import { useAuthContext } from '@/contexts/AuthContext'
 import { useEffect } from 'react'
 
 const Faq = () => {
+  // TODO: remove this
   const { getUserCred } = useAuthContext()
 
   useEffect(() => {

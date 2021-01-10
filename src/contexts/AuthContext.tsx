@@ -13,6 +13,7 @@ const AuthContext = createContext<AuthCtx | undefined>(undefined)
 
 const Provider = ({ children }) => {
   const { checkUserSession } = useAuth()
+
   function getUserCred() {
     checkUserSession()
     const token = localStorage.getItem(LOCAL_KEY)
