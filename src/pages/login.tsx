@@ -3,20 +3,18 @@ import { useRouter } from 'next/router'
 import { toast } from 'react-hot-toast'
 
 import LoginCard from '@/components/auth/login/Card'
-import { useCookie } from '@/lib/auth'
+import useAuth from '@/utils/useAuth'
 
 const Login = () => {
   const router = useRouter()
+  const { checkUserSession } = useAuth()
 
   useEffect(() => {
     toast.dismiss()
     return
   }, [router.isReady])
 
-  if (useCookie('get')) {
-    // intercept user to being in login page
-    router.push('/faq')
-  }
+  checkUserSession()
 
   return <LoginCard />
 }

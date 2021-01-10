@@ -4,6 +4,7 @@ import Head from 'next/head'
 import { ReactQueryDevtools } from 'react-query/devtools'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { Toaster } from 'react-hot-toast'
+import AuthContext from '@/contexts/AuthContext'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const queryClient = new QueryClient()
@@ -20,7 +21,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         <title>TuanTanah</title>
       </Head>
       <QueryClientProvider client={queryClient}>
-        <Component {...pageProps} />
+        <AuthContext.Provider>
+          <Component {...pageProps} />
+        </AuthContext.Provider>
         <Toaster toastOptions={{ duration: 5000 }} />
         <ReactQueryDevtools />
       </QueryClientProvider>
