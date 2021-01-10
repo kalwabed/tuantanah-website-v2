@@ -1,14 +1,4 @@
-async function fetcher({ route = '', method = 'post', data }) {
-  return await (
-    await fetch(`${process.env.NEXT_PUBLIC_ENDPOINT}${route}`, {
-      method,
-      headers: {
-        'content-type': 'application/json'
-      },
-      body: JSON.stringify({ ...data })
-    })
-  ).json()
-}
+import { fetcher } from './apiConfig'
 
 export async function userLogin({
   email = '',

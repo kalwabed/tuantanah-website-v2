@@ -7,6 +7,7 @@ import Router from 'next/router'
 
 import ButtonLoading from '@/shared/ButtonLoading'
 import { useLogin } from '@/sdk/auth'
+import { ROUTE_USER_AFTER_AUTH } from '@/constants'
 
 interface Form {
   email: string
@@ -23,7 +24,7 @@ const LoginForm = () => {
     if (res.success) {
       // setToken(user.token!, true)
       toast.success('Berhasil login')
-      Router.push('/faq')
+      Router.push(ROUTE_USER_AFTER_AUTH)
     } else {
       // fail LOGIN
       toast.error(res.response.msg)
