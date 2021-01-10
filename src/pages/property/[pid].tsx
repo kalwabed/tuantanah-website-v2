@@ -4,7 +4,7 @@ import { Spinner } from 'react-bootstrap'
 
 import Layout from '@/components/Layout'
 import About from '@/components/Property/detail/About'
-import { getPid, getPropertyById } from '@/lib/PropertyApi'
+import { getPid, getPropertyById } from '@/lib/propertyApi'
 import { Property } from '@/shared/interface'
 import Gallery from '@/components/Property/detail/Gallery'
 import Description from '@/components/Property/detail/Description'

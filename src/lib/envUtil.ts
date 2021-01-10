@@ -20,14 +20,14 @@ export const useCookie = (mode: 'set' | 'get' | 'remove', value?: any) => {
 }
 
 export const useLocalStorage = (mode: 'set' | 'get' | 'remove', value?: any) => {
+  if (typeof localStorage === 'undefined') return null
   const ls = localStorage
   switch (mode) {
     case 'set':
       ls.setItem(LOCAL_KEY, value)
       break
     case 'get':
-      ls.getItem(LOCAL_KEY)
-      break
+      return ls.getItem(LOCAL_KEY)
     case 'remove':
       ls.removeItem(LOCAL_KEY)
       break

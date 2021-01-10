@@ -1,7 +1,7 @@
 import { useMutation } from 'react-query'
 
-import { userLogin, userSignUp } from '@/lib/AuthApi'
-import { useCookie, useLocalStorage } from '@/lib/auth'
+import { userLogin, userSignUp } from '@/lib/authApi'
+import { useCookie, useLocalStorage } from '@/lib/envUtil'
 import { v4 } from 'uuid'
 
 export const setUserCred = (userToken: string) => {

@@ -3,7 +3,7 @@ import { Container, Spinner } from 'react-bootstrap'
 
 import Layout from '@/components/Layout'
 import { Property as PropertyType } from '@/shared/interface'
-import { getAllProperty } from '@/lib/PropertyApi'
+import { getAllProperty } from '@/lib/propertyApi'
 import PropertyList from '@/components/Property/List'
 import SearchBar from '@/components/Property/SearchBar'
 
