@@ -10,6 +10,7 @@
   "dependencies": {
     "@hookform/error-message": "^0.0.5",
     "bootstrap": "^4.5.3",
+    "date-fns": "^2.16.1",
     "gridjs": "^3.2.1",
     "gridjs-react": "^3.2.1",
     "js-cookie": "^2.2.1",

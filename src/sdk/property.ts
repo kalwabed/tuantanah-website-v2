@@ -5,7 +5,7 @@ import { useQuery } from 'react-query'
 
 function getPropertyByUserID(userId: string) {
   const dateFmt = (date): Date => new Date(date)
-  const [updatedAt, setUpdatedAt] = useState(new Date(Date.now()))
+  const [updatedAt, setUpdatedAt] = useState<Date | null>(null)
   const { data, isLoading, dataUpdatedAt } = useQuery(['userProperties', userId], () => propByUserId(userId), {
     onError: err => {
       console.error(err)

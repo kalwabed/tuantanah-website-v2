@@ -1,9 +1,11 @@
-import { useAuthContext } from '@/contexts/AuthContext'
-import ConfirmationModal from '@/shared/ConfirmationModal'
 import Link from 'next/link'
 import { useState } from 'react'
 import { Badge, Button, Col, Row } from 'react-bootstrap'
 import { IoIosAddCircle, IoIosCheckmarkCircle, IoIosJournal, IoIosLogOut } from 'react-icons/io'
+import format from 'date-fns/format'
+
+import { useAuthContext } from '@/contexts/AuthContext'
+import ConfirmationModal from '@/shared/ConfirmationModal'
 
 interface StatusProps {
   onLogout: () => void
@@ -39,7 +41,7 @@ const StatusBar = (props: StatusProps) => {
           Keluar <IoIosLogOut />
         </Button>
         <Badge variant="light" as="span">
-          update terakhir: {updatedAt.toLocaleTimeString()}
+          update terakhir {updatedAt && format(updatedAt, 'kk : mm : ss')}
         </Badge>
       </Col>
       <ConfirmationModal

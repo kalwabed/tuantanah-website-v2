@@ -1,17 +1,15 @@
 import { useState } from 'react'
-import { Col, Container, Row, Spinner } from 'react-bootstrap'
+import { Container, Spinner } from 'react-bootstrap'
 
 import ModalShowProperty from '@/components/dashboard/ModalShowProperty'
 import sdk from '@/sdk/property'
 import { useAuthContext } from '@/contexts/AuthContext'
 import StatusBar from '@/components/dashboard/StatusBar'
 import useAuth from '@/utils/useAuth'
-import { useRouter } from 'next/router'
 import toast from 'react-hot-toast'
 
 const Dashboard = () => {
   const { user } = useAuthContext()
-  const router = useRouter()
   const { userSignOut } = useAuth()
   const { properties, isLoading, updatedAt } = sdk.getPropertyByUserID(user?._id)
   const [showModal, setShowModal] = useState(false)
