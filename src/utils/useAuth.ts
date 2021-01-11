@@ -20,10 +20,10 @@ const useAuth = () => {
     }
   }
 
-  const userSignOut = () => {
+  const userSignOut = (redirectPath = '') => {
     useCookie('remove')
     useLocalStorage('remove')
-    router.replace(router.asPath)
+    router.replace(redirectPath || router.asPath)
   }
 
   return { checkUserSession, userSignOut }

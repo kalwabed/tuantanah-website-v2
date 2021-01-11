@@ -15,7 +15,7 @@ const Header = () => {
 
   const handleLogout = () => {
     userSignOut()
-    toast.success('Berhasil keluar!')
+    toast.success('Berhasil keluar')
   }
 
   return (
