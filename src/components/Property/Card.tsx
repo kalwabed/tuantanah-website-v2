@@ -33,7 +33,7 @@ const PropertyCard: React.FC<Property> = ({ title, mainPicture, location, size, 
             <Card.Text className="font-weight-bold stretched-link text-muted">{title}</Card.Text>
           </a>
         </Link>
-        <Card.Text className="mt-2 font-small">{location.display}</Card.Text>
+        <Card.Text className="mt-2 font-small">{location.display.split(',')[1]}</Card.Text>
       </Card.Body>
     </Card>
   )

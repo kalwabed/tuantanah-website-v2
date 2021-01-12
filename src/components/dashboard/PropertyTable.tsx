@@ -86,9 +86,9 @@ const PropertyTable = ({ properties }: { properties: Property[] }) => {
             formatter: cell => html(`<img src='${cell}' width='100%'/>`),
             width: '7%'
           },
-          'Judul',
+          { name: 'Judul', width: 'auto' },
           { name: 'Ukuran', width: '6%' },
-          'Lokasi',
+          { name: 'Lokasi', width: 'auto' },
           { name: 'Aksi', width: '9%' }
         ]}
         search={true}

@@ -37,7 +37,7 @@ const CardSoldOut: React.FC<Property> = ({ title, mainPicture, location, size, s
           </div>
         </div>
         <Card.Text className="font-weight-bold">{title}</Card.Text>
-        <Card.Text className="mt-2 font-small">{location.display}</Card.Text>
+        <Card.Text className="mt-2 font-small">{location.display.split(',')[1]}</Card.Text>
       </Card.Body>
     </Card>
   )
