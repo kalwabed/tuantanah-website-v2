@@ -33,3 +33,23 @@ export async function getPropertyByUserId(userId: string) {
     console.error(err)
   }
 }
+
+interface ApiResponse {
+  success: boolean
+}
+
+export async function propertySoldOut(userId: string): Promise<ApiResponse> {
+  try {
+    return await fetcher({ route: '/d/property/soldout', method: 'put', data: { id: userId } })
+  } catch (err) {
+    console.error(err)
+  }
+}
+// TODO: change function names to more like sense
+export async function removeProperty(propertyId: string): Promise<ApiResponse> {
+  try {
+    return await fetcher({ route: `/d/property/${propertyId}`, method: 'delete' })
+  } catch (err) {
+    throw new Error('[Error]: propertyApi (53)')
+  }
+}

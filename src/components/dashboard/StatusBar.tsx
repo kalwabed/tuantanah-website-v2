@@ -19,7 +19,7 @@ const StatusBar = (props: StatusProps) => {
   const { user } = useAuthContext()
   return (
     <Row>
-      <Col xs={8} md={8}>
+      <Col md={8}>
         <Link href="/dashboard/property">
           <Button className="mr-2" variant="success" size="lg">
             Tambah <IoIosAddCircle />
@@ -34,7 +34,7 @@ const StatusBar = (props: StatusProps) => {
           Terjual <IoIosJournal />
         </Button>
       </Col>
-      <Col xs={4} md={4} className="d-sm-flex d-md-block justify-content-end">
+      <Col md={4} className="d-sm-flex d-md-block justify-content-end">
         <span>Masuk sebagai </span>
         <span className="font-weight-bold mr-1">{user?.fullName}</span> |{' '}
         <Button variant="outline-secondary" size="sm" onClick={() => setShowConfirmModal(true)}>

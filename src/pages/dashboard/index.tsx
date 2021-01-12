@@ -1,12 +1,14 @@
 import { useState } from 'react'
 import { Container, Spinner } from 'react-bootstrap'
+import toast from 'react-hot-toast'
 
 import ModalShowProperty from '@/components/dashboard/ModalShowProperty'
+import PropertyTable from '@/components/dashboard/PropertyTable'
 import sdk from '@/sdk/property'
 import { useAuthContext } from '@/contexts/AuthContext'
 import StatusBar from '@/components/dashboard/StatusBar'
 import useAuth from '@/utils/useAuth'
-import toast from 'react-hot-toast'
+import DashboardLayout from '@/components/Layout/Dashboard'
 
 const Dashboard = () => {
   const { user } = useAuthContext()
@@ -20,7 +22,7 @@ const Dashboard = () => {
   }
 
   return (
-    <>
+    <DashboardLayout>
       <Container className="my-3">
         <ModalShowProperty
           isLoading={isLoading}
@@ -29,10 +31,6 @@ const Dashboard = () => {
           showModal={showModal}
         />
 
-        <h2>
-          <span className="logo-font">TuanTanah</span> dashboard
-        </h2>
-
         <StatusBar onLogout={handleLogout} setShowModal={setShowModal} updatedAt={updatedAt} />
         {isLoading && (
           <span className="flex-inline">
@@ -40,8 +38,8 @@ const Dashboard = () => {
           </span>
         )}
       </Container>
-      {/* {!isLoading && <Table property={data.property} />} */}
-    </>
+      {!isLoading && <PropertyTable properties={properties} />}
+    </DashboardLayout>
   )
 }
 

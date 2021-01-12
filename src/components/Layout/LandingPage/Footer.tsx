@@ -2,11 +2,8 @@ import { Container, Row, Col } from 'react-bootstrap'
 
 import Link from 'next/link'
 import { IoLogoGithub, IoLogoInstagram, IoIosHeart } from 'react-icons/io'
-import { useRouter } from 'next/router'
 
 const Footer = () => {
-  const { asPath } = useRouter()
-  const isDashboard = asPath.split('/')[1] === 'dashboard' ? true : false
   return (
     <footer className="footer position-relative bg-dark text-light">
       <Container>
@@ -37,39 +34,24 @@ const Footer = () => {
           </Col>
           <Col></Col>
           <Col md={4} sm={4} className="d-none d-md-block">
-            {!isDashboard ? (
-              <>
-                <p className="font-weight-bold ">Pages</p>
-                <ul className="link-footer p-0 mb-0">
-                  <li>
-                    <Link href="/">
-                      <a className="text-decoration-none text-light">Home</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/property">
-                      <a className="text-decoration-none text-light">Property</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/faq">
-                      <a className="text-decoration-none text-light">Faq</a>
-                    </Link>
-                  </li>
-                </ul>
-              </>
-            ) : (
-              <>
-                <p className="font-weight-bold ">Pages</p>
-                <ul className="link-footer p-0 mb-0">
-                  <li>
-                    <Link href="/dashboard">
-                      <a className="text-decoration-none text-light">Dashboard</a>
-                    </Link>
-                  </li>
-                </ul>
-              </>
-            )}
+            <p className="font-weight-bold ">Pages</p>
+            <ul className="link-footer p-0 mb-0">
+              <li>
+                <Link href="/">
+                  <a className="text-decoration-none text-light">Home</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/property">
+                  <a className="text-decoration-none text-light">Property</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/faq">
+                  <a className="text-decoration-none text-light">Faq</a>
+                </Link>
+              </li>
+            </ul>
           </Col>
         </Row>
         <hr className="my-5" />

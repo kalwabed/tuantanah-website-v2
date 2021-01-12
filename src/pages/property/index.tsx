@@ -1,7 +1,7 @@
 import type { GetStaticProps } from 'next'
 import { Container, Spinner } from 'react-bootstrap'
 
-import Layout from '@/components/Layout'
+import Layout from '@/components/Layout/LandingPage'
 import { Property as PropertyType } from '@/shared/interface'
 import { getAllProperty } from '@/lib/propertyApi'
 import PropertyList from '@/components/Property/List'

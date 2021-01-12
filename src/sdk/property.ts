@@ -1,7 +1,11 @@
-import { getPropertyByUserId as propByUserId } from '@/lib/propertyApi'
+import {
+  getPropertyByUserId as propByUserId,
+  propertySoldOut as propSoldOut,
+  removeProperty as rmProperty
+} from '@/lib/propertyApi'
 import { Property } from '@/shared/interface'
 import { useState } from 'react'
-import { useQuery } from 'react-query'
+import { useMutation, useQuery } from 'react-query'
 
 function getPropertyByUserID(userId: string) {
   const dateFmt = (date): Date => new Date(date)
@@ -16,4 +20,25 @@ function getPropertyByUserID(userId: string) {
   return { properties: data?.property as Property[], isLoading, updatedAt }
 }
 
-export default { getPropertyByUserID }
+function propertySoldOut() {
+  const { mutateAsync } = useMutation(propSoldOut, {
+    onError: err => {
+      console.error(err)
+      throw new Error('Kesalahan saat mengubah properti')
+    }
+  })
+  return { soldOut: mutateAsync }
+}
+
+function removeProperty() {
+  const { mutateAsync } = useMutation(rmProperty, {
+    onError: err => {
+      console.error(err)
+      throw new Error('Kesalahan saat menghapus properti')
+    }
+  })
+
+  return { removeProperty: mutateAsync }
+}
+
+export default { getPropertyByUserID, propertySoldOut, removeProperty }
