@@ -53,6 +53,10 @@ function MyApp({ Component, pageProps }: AppProps) {
           font-size: 0.875rem;
         }
 
+        .sold {
+          filter: grayscale();
+        }
+
         .section-sm {
           padding-top: 3rem;
           padding-bottom: 3rem;

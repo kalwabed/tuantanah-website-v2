@@ -1,14 +1,34 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
 import { Card, Button } from 'react-bootstrap'
+import { createBreakpoint } from 'react-use'
 
 import { Property } from '@/shared/interface'
 import StatusPropertyCheck from '@/helpers/StatusPropertyCheck'
+import { CardImage } from './Card'
+
+const useBreakpoints = createBreakpoint({ sm: 576, md: 768, lg: 992, xl: 1200 })
 
 const CardSoldOut: React.FC<Property> = ({ title, mainPicture, location, size, status }) => {
+  const breakpoint = useBreakpoints()
   return (
-    <Card className="hover-shadow">
-      <Card.Img variant="top" src={mainPicture} style={{ filter: 'grayscale()' }} width="10%" />
+    <Card className="hover-shadow" style={{ cursor: 'not-allowed' }}>
+      <CardImage src={mainPicture} className="sold" />
+      <Card.ImgOverlay>
+        {breakpoint === 'sm' ? (
+          <div className="text-center pt-3">
+            <Button size="lg" variant="secondary" disabled>
+              Sudah terjual!
+            </Button>
+          </div>
+        ) : (
+          <div className="text-center pt-5">
+            <Button size="lg" variant="light" disabled>
+              Sudah terjual!
+            </Button>
+          </div>
+        )}
+      </Card.ImgOverlay>
       <Card.Body className="pt-2 font-card">
         <div className="d-md-flex justify-content-between">
           <Card.Title>{size.display}</Card.Title>
@@ -18,11 +38,6 @@ const CardSoldOut: React.FC<Property> = ({ title, mainPicture, location, size, s
         </div>
         <Card.Text className="font-weight-bold">{title}</Card.Text>
         <Card.Text className="mt-2 font-small">{location.display}</Card.Text>
-        <div className="justify-content-center d-flex">
-          <Button size="sm" variant="secondary" disabled>
-            Sudah terjual!
-          </Button>
-        </div>
       </Card.Body>
     </Card>
   )
