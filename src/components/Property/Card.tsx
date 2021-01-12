@@ -1,11 +1,15 @@
-import { Card } from 'react-bootstrap'
-import Link from 'next/link'
+/* eslint-disable react/prop-types */
+import React from 'react'
+import { Card, Button } from 'react-bootstrap'
+import { createBreakpoint } from 'react-use'
 import Image from 'next/image'
 
 import { Property } from '@/shared/interface'
-import StatusPropertyCheck from '@/helpers/StatusPropertyCheck'
+import CardBody from './CardBody'
 
-export const CardImage = (props: { src: string; className?: string }) => (
+const useBreakpoints = createBreakpoint({ sm: 576, md: 768, lg: 992, xl: 1200 })
+
+const CardImage = (props: { src: string; className?: string }) => (
   <Image
     src={props.src}
     layout="responsive"
@@ -17,24 +21,31 @@ export const CardImage = (props: { src: string; className?: string }) => (
   />
 )
 
-const PropertyCard: React.FC<Property> = ({ title, mainPicture, location, size, _id, status }) => {
+const PropertyCard: React.FC<Property> = ({ title, mainPicture, location, size, status, _id }) => {
+  const breakpoint = useBreakpoints()
+  const { soldOut } = status
+
   return (
-    <Card className="hover-shadow">
-      <CardImage src={mainPicture} />
-      <Card.Body className="pt-2 font-card">
-        <div className="d-md-flex justify-content-between">
-          <Card.Title>{size.display}</Card.Title>
-          <div>
-            <StatusPropertyCheck {...status} />
-          </div>
-        </div>
-        <Link href={`/property/${_id}`}>
-          <a>
-            <Card.Text className="font-weight-bold stretched-link text-muted">{title}</Card.Text>
-          </a>
-        </Link>
-        <Card.Text className="mt-2 font-small">{location.display.split(',')[1]}</Card.Text>
-      </Card.Body>
+    <Card className="hover-shadow" style={{ cursor: soldOut ? 'not-allowed' : 'auto' }}>
+      <CardImage src={mainPicture} className={soldOut && 'sold'} />
+      {soldOut && (
+        <Card.ImgOverlay>
+          {breakpoint === 'sm' ? (
+            <div className="text-center pt-3">
+              <Button size="lg" variant="secondary" disabled>
+                Sudah terjual!
+              </Button>
+            </div>
+          ) : (
+            <div className="text-center pt-5">
+              <Button size="lg" variant="light" disabled>
+                Sudah terjual!
+              </Button>
+            </div>
+          )}
+        </Card.ImgOverlay>
+      )}
+      <CardBody location={location} title={title} size={size} status={status} _id={_id} />
     </Card>
   )
 }

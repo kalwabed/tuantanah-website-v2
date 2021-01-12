@@ -1,6 +1,6 @@
-import LazyLoad from 'react-lazyload'
 import Link from 'next/link'
 import { Row, Col, Container, Card, Breadcrumb } from 'react-bootstrap'
+import Image from 'next/image'
 
 import StatusPropertyCheck from '@/helpers/StatusPropertyCheck'
 import { Property } from '@/shared/interface'
@@ -31,15 +31,15 @@ const About = (props: Property) => {
         <Row>
           <Col xs={12} md={7} className="mt-4">
             <Card>
-              <LazyLoad height={100} once>
-                <Card.Img
-                  src={mainPicture}
-                  alt="gambar"
-                  width="100%"
-                  onClick={() => window.open(mainPicture, '_blank')}
-                  className="img-gallery"
-                />
-              </LazyLoad>
+              <Image
+                src={mainPicture}
+                width={100}
+                height={70}
+                layout="responsive"
+                alt={title}
+                onClick={() => window.open(mainPicture, '_blank')}
+                className="img-gallery"
+              />
             </Card>
           </Col>
           <Col className="text-wrap" xs={12} md={5}>
@@ -60,12 +60,6 @@ const About = (props: Property) => {
                 <p>
                   <StatusPropertyCheck {...status} />
                 </p>
-                {/* <ul>
-									<li>Model: perumahan</li>
-									<li>Stok: 18 unit</li>
-									<li>DP: 3,5 Juta / 3thn</li>
-									<li>Cicilan: 15 ribu / hari</li>
-								</ul> */}
               </Card.Body>
             </Card>
           </Col>
