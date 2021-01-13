@@ -9,7 +9,7 @@ import {
 } from '@/lib/propertyApi'
 import { Property } from '@/shared/interface'
 import { useState } from 'react'
-import { useMutation, useQuery } from 'react-query'
+import { useMutation, useQuery, useQueryClient } from 'react-query'
 
 function getPropertyByUserID(userId: string) {
   const [updatedAt, setUpdatedAt] = useState<Date | number>(Date.now())
@@ -24,20 +24,28 @@ function getPropertyByUserID(userId: string) {
 }
 
 function propertySoldOut() {
+  const qClient = useQueryClient()
   const { mutateAsync } = useMutation(propSoldOut, {
     onError: err => {
       console.error(err)
       throw new Error('Kesalahan saat mengubah properti')
+    },
+    onSuccess: () => {
+      qClient.invalidateQueries('userProperties')
     }
   })
   return { soldOut: mutateAsync }
 }
 
 function removeProperty() {
+  const qClient = useQueryClient()
   const { mutateAsync } = useMutation(rmProperty, {
     onError: err => {
       console.error(err)
       throw new Error('Kesalahan saat menghapus properti')
+    },
+    onSuccess: () => {
+      qClient.invalidateQueries('userProperties')
     }
   })
 

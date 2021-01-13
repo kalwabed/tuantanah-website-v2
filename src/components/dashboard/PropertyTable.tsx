@@ -1,9 +1,7 @@
 import { useState } from 'react'
 import { Grid, _ } from 'gridjs-react'
-import { Container } from 'react-bootstrap'
 import { html } from 'gridjs'
 import { toast } from 'react-hot-toast'
-import { useQueryClient } from 'react-query'
 
 import { Property } from '@/shared/interface'
 import sdk from '@/sdk/property'
@@ -18,11 +16,10 @@ export interface PickProperty {
 
 const PropertyTable = ({ properties }: { properties: Property[] }) => {
   const [showModal, setShowModal] = useState(false)
+  const [pickProperty, setPickProperty] = useState<PickProperty>({ id: '', title: '', type: 'remove' })
   const { soldOut } = sdk.propertySoldOut()
   const { removeProperty } = sdk.removeProperty()
 
-  const [pickProperty, setPickProperty] = useState<PickProperty>({ id: '', title: '', type: 'remove' })
-  const { invalidateQueries } = useQueryClient()
   const newProperty = properties.filter(prop => !prop.status.soldOut)
 
   const handlePropertyRemove = async (id: string) => {
@@ -32,7 +29,6 @@ const PropertyTable = ({ properties }: { properties: Property[] }) => {
       toast.error('Ups something went wrong')
     } else {
       toast.success('Properti berhasil dihapus')
-      invalidateQueries('userProperty')
     }
   }
 
@@ -45,7 +41,6 @@ const PropertyTable = ({ properties }: { properties: Property[] }) => {
         toast.success('Status berhasil diubah!')
       }
       setShowModal(false)
-      invalidateQueries('userProperty')
     } catch (err) {
       console.error(err)
     }

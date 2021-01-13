@@ -3,12 +3,13 @@ import { useForm } from 'react-hook-form'
 import { ErrorMessage } from '@hookform/error-message'
 import { Form, Col, Button, Badge, InputGroup, Spinner } from 'react-bootstrap'
 import Link from 'next/link'
-import Quill from 'react-quill'
+import dynamic from 'next/dynamic'
 import toast from 'react-hot-toast'
 
 import { UserInput, ApiKotaKabResponse, ApiProvinsiResponse } from '@/shared/interface'
 import sdk from '@/sdk/property'
 import { UserCredential } from '@/contexts/AuthContext'
+const Quill = dynamic(() => import('react-quill'), { ssr: false, loading: () => <Spinner animation="grow" /> })
 
 type Props = {
   user: UserCredential
