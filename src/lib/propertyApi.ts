@@ -1,6 +1,17 @@
 import { Property } from '@/shared/interface'
 import { fetcher } from './apiConfig'
 
+export interface ServerResponseAfterTransaction {
+  response: {
+    msg: string
+    errorCode: number
+  }
+  token: string
+  msg: string
+  error: string
+  success: boolean
+}
+
 export async function getAllProperty() {
   try {
     return await fetcher({ method: 'get', route: '/v2/v' })
@@ -59,5 +70,26 @@ export async function apiPropertyById(propertyId: string): Promise<{ property: P
     return await fetcher({ route: `/v/property/${propertyId}`, method: 'get' })
   } catch (err) {
     throw new Error('[Error]: apiPropertyById (61)')
+  }
+}
+
+export const apiKotaByProv = async (provId: number) => {
+  return await (await fetch(`https://dev.farizdotid.com/api/daerahindonesia/kota?id_provinsi=${provId}`)).json()
+}
+
+export const apiProvinsi = async () => {
+  return await (await fetch('https://dev.farizdotid.com/api/daerahindonesia/provinsi')).json()
+}
+
+export const apiAddProperty = async (formData: FormData) => {
+  try {
+    return (await (
+      await fetch(`${process.env.NEXT_PUBLIC_ENDPOINT}/d/property`, {
+        method: 'post',
+        body: formData
+      })
+    ).json()) as ServerResponseAfterTransaction
+  } catch (err) {
+    throw new Error(err)
   }
 }

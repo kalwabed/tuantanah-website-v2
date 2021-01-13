@@ -1,5 +1,8 @@
 import {
+  apiAddProperty,
+  apiKotaByProv,
   apiPropertyById,
+  apiProvinsi,
   getPropertyByUserId as propByUserId,
   propertySoldOut as propSoldOut,
   removeProperty as rmProperty
@@ -52,4 +55,39 @@ function getPropertyById(propertyId: string) {
   return { property: data?.property, isLoading }
 }
 
-export default { getPropertyByUserID, getPropertyById, propertySoldOut, removeProperty }
+function getKotaByProv(provId: number) {
+  const { isFetching, isLoading, data } = useQuery(['kota', provId], () => apiKotaByProv(provId), {
+    onError: err => {
+      throw new Error(err.toString())
+    }
+  })
+
+  return { isFetching, isLoading, cities: data }
+}
+
+function getProvinsi() {
+  const { data, isLoading } = useQuery('provinsi', () => apiProvinsi(), { refetchOnMount: false })
+
+  return { provinces: data, isLoading }
+}
+
+function addProperty() {
+  const { mutateAsync, isLoading } = useMutation(apiAddProperty, {
+    onError: err => {
+      console.error(err)
+      throw new Error('Tampaknya ada kesalahan saat menambah properti')
+    }
+  })
+
+  return { mutateAsync, mutateIsLoading: isLoading }
+}
+
+export default {
+  getKotaByProv,
+  getProvinsi,
+  addProperty,
+  getPropertyByUserID,
+  getPropertyById,
+  propertySoldOut,
+  removeProperty
+}
