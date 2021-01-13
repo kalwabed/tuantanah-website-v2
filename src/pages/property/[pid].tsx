@@ -2,7 +2,7 @@ import type { GetStaticPaths, GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 import { Spinner } from 'react-bootstrap'
 
-import Layout from '@/components/Layout'
+import Layout from '@/components/Layout/LandingPage'
 import About from '@/components/Property/detail/About'
 import { getPid, getPropertyById } from '@/lib/propertyApi'
 import { Property } from '@/shared/interface'
@@ -47,7 +47,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { property } = await getPropertyById(pid)
 
   return {
-    props: { property }
+    props: { property },
+    revalidate: 3
   }
 }
 

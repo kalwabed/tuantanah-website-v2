@@ -1,44 +1,50 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Container, Spinner } from 'react-bootstrap'
-import { useQuery } from 'react-query'
+import toast from 'react-hot-toast'
 
 import ModalShowProperty from '@/components/dashboard/ModalShowProperty'
-import { Property } from '@/shared/interface'
+import PropertyTable from '@/components/dashboard/PropertyTable'
+import sdk from '@/sdk/property'
 import { useAuthContext } from '@/contexts/AuthContext'
 import StatusBar from '@/components/dashboard/StatusBar'
+import useAuth from '@/utils/useAuth'
+import DashboardLayout from '@/components/Layout/Dashboard'
+import AuthLoader from '@/shared/AuthLoader'
 
-const Dashboard = (props: any) => {
+const Dashboard = () => {
   const { user } = useAuthContext()
-  // const { data, isLoading, dataUpdatedAt } = useQuery<Property[], Promise<Property[]>>(
-  //   ['userProperty', user._id],
-  //   fetchPropertyByUserID,
-  //   {
-  //     onSettled: (): void => setUpdatedAt(new Date())
-  //   }
-  // )
-  // const [updatedAt, setUpdatedAt] = useState(new Date(dataUpdatedAt))
+  const { userSignOut } = useAuth()
+  const { properties, isLoading, updatedAt, isFetching } = sdk.getPropertyByUserID(user?._id)
   const [showModal, setShowModal] = useState(false)
-  // const onLogout = () => {
-  //   setToken(null, false)
-  //   setIsAuthenticated(false)
-  //   props.history.push('/')
-  // }
+
+  const handleLogout = () => {
+    userSignOut('/')
+    toast.success('Berhasil keluar')
+  }
+
+  if (!user) {
+    return <AuthLoader />
+  }
 
   return (
-    <>
+    <DashboardLayout>
       <Container className="my-3">
-        {/* <ModalShowProperty isLoading={isLoading} properties={data} setShowModal={setShowModal} showModal={showModal} /> */}
-        <h1>Dashboard</h1>
-        {/* <StatusBar onLogout={onLogout} setShowModal={setShowModal} updatedAt={updatedAt} /> */}
+        <ModalShowProperty
+          isLoading={isLoading}
+          properties={properties}
+          setShowModal={setShowModal}
+          showModal={showModal}
+        />
 
-        {/* {isLoading && (
+        <StatusBar onLogout={handleLogout} setShowModal={setShowModal} updatedAt={updatedAt} isFetching={isFetching} />
+        {isLoading && (
           <span className="flex-inline">
             Memuat <Spinner variant="success" animation="grow" />
           </span>
-        )} */}
+        )}
       </Container>
-      {/* {!isLoading && <Table property={data.property} />} */}
-    </>
+      {!isLoading && <PropertyTable properties={properties} />}
+    </DashboardLayout>
   )
 }
 

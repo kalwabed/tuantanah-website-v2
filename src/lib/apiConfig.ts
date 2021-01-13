@@ -1,6 +1,6 @@
 interface FetcherProps {
   route?: string
-  method?: 'post' | 'get'
+  method?: 'post' | 'get' | 'put' | 'delete'
   data?: any
 }
 

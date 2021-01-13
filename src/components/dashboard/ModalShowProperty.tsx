@@ -17,7 +17,7 @@ const ModalShowProperty = (props: ModalProps) => {
     <Modal show={showModal} size="lg" scrollable backdrop="static">
       <Modal.Header closeButton onHide={() => setShowModal(false)}>
         <p className="h6">
-          Daftar properti <b>{user.fullName}</b> yang telah terjual
+          Daftar properti <b>{user?.fullName}</b> yang telah terjual
         </p>
       </Modal.Header>
       <Modal.Body>{!isLoading && <SoldOutTable property={properties} />}</Modal.Body>

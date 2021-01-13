@@ -1,33 +1,43 @@
-import { Form, Col, FormControl, Button, Badge, InputGroup } from 'react-bootstrap'
-import { IoIosSearch } from 'react-icons/io'
+import { Dispatch, SetStateAction, useRef } from 'react'
+import { Col, FormControl, Button, Badge, InputGroup, Row } from 'react-bootstrap'
+import { IoIosClose } from 'react-icons/io'
 
-const SearchBar = ({ propertyLength = 0 }) => {
-  const searchOnSubmit = (e: React.FormEvent<HTMLElement>) => {
-    e.preventDefault()
-  }
+interface Props {
+  propertyLength: number
+  searchValue: string
+  setSearchValue: Dispatch<SetStateAction<string>>
+}
+
+const SearchBar = (props: Props) => {
+  const { propertyLength, setSearchValue, searchValue } = props
+  const inputFocus = useRef()
 
   return (
     <div className="section section-sm">
-      <Form onSubmit={e => searchOnSubmit(e)}>
-        <Form.Row className="justify-content-between">
-          <Col xs={8} md={5}>
-            <InputGroup>
-              <FormControl placeholder="i.e Banyuwangi" />
-              <InputGroup.Append>
-                <Button variant="success">
-                  Search <IoIosSearch />
-                </Button>
-              </InputGroup.Append>
-            </InputGroup>
-          </Col>
-          <Col md="auto" className="d-sm-flex d-md-block justify-content-center">
-            <Badge variant="outline-light">founds {propertyLength} property</Badge>
-            <Badge variant="outline-light" className="ml-1">
-              <img src="/static/logo.png" alt="logo" width="20" height="20" />
-            </Badge>
-          </Col>
-        </Form.Row>
-      </Form>
+      Cari berdasarkan lokasi
+      <Row className="justify-content-between">
+        <Col md={5}>
+          <InputGroup>
+            <FormControl
+              ref={inputFocus}
+              placeholder="cth. Banyuwangi"
+              onChange={e => setSearchValue(e.target.value)}
+              value={searchValue}
+            />
+            <InputGroup.Append>
+              <Button variant="secondary" size="sm" onClick={() => setSearchValue('')} disabled={!searchValue}>
+                <IoIosClose />
+              </Button>
+            </InputGroup.Append>
+          </InputGroup>
+        </Col>
+        <Col md="auto" className="d-sm-flex d-md-block justify-content-center">
+          <Badge variant="outline-light">Ditemukan {propertyLength} properti</Badge>
+          <Badge variant="outline-light" className="ml-1">
+            <img src="/static/logo.png" alt="logo" width="20" height="20" />
+          </Badge>
+        </Col>
+      </Row>
     </div>
   )
 }

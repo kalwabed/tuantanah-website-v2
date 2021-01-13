@@ -1,20 +1,21 @@
 import { useEffect } from 'react'
-import { useRouter } from 'next/router'
 import { toast } from 'react-hot-toast'
 
 import LoginCard from '@/components/auth/login/Card'
-import useAuth from '@/utils/useAuth'
+import { useAuthContext } from '@/contexts/AuthContext'
+import AuthLoader from '@/shared/AuthLoader'
 
 const Login = () => {
-  const router = useRouter()
-  const { checkUserSession } = useAuth()
+  const { user } = useAuthContext()
 
   useEffect(() => {
     toast.dismiss()
     return
-  }, [router.isReady])
+  }, [])
 
-  checkUserSession()
+  if (user) {
+    return <AuthLoader />
+  }
 
   return <LoginCard />
 }

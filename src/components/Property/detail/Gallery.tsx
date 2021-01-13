@@ -1,8 +1,8 @@
-import { Row, Container, Col, Card, Spinner } from 'react-bootstrap'
+import { Row, Container, Col, Card } from 'react-bootstrap'
 
 import { Property } from '@/shared/interface'
-import LazyLoad from 'react-lazyload'
 import { Fade } from 'react-awesome-reveal'
+import Image from 'next/image'
 
 const Gallery = ({ gallery }: Pick<Property, 'gallery'>) => {
   return (
@@ -25,18 +25,17 @@ const Gallery = ({ gallery }: Pick<Property, 'gallery'>) => {
 
         <Row>
           <Fade className="col-12 col-md-3 my-1" direction="right" triggerOnce cascade>
-            {gallery.map((img, i) => (
-              <LazyLoad once key={i} height={50} placeholder={<Spinner animation="border" />}>
-                <Card>
-                  <Card.Img
-                    src={img.imageUrl ? img.imageUrl : undefined}
-                    className="img-gallery"
-                    alt="img"
-                    width="100%"
-                    onClick={() => window.open(img.imageUrl ? img.imageUrl : undefined, '_blank')}
-                  />
-                </Card>
-              </LazyLoad>
+            {gallery.map(img => (
+              <Image
+                src={img.imageUrl}
+                width={50}
+                height={40}
+                className="img-gallery"
+                layout="responsive"
+                alt={img.imageUrl}
+                key={img.imageUrl}
+                onClick={() => window.open(img.imageUrl ? img.imageUrl : undefined, '_blank')}
+              />
             ))}
           </Fade>
         </Row>

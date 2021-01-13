@@ -1,34 +1,51 @@
+/* eslint-disable react/prop-types */
+import React from 'react'
 import { Card, Button } from 'react-bootstrap'
-import { IoIosHeartEmpty } from 'react-icons/io'
-import Link from 'next/link'
+import { createBreakpoint } from 'react-use'
+import Image from 'next/image'
 
 import { Property } from '@/shared/interface'
-import StatusPropertyCheck from '@/helpers/StatusPropertyCheck'
+import CardBody from './CardBody'
 
-const PropertyCard: React.FC<Property> = ({ title, mainPicture, location, size, _id, status }) => {
+const useBreakpoints = createBreakpoint({ sm: 576, md: 768, lg: 992, xl: 1200 })
+
+const CardImage = (props: { src: string; className?: string }) => (
+  <Image
+    src={props.src}
+    layout="responsive"
+    alt="Property"
+    sizes="50vh"
+    width={100}
+    height={80}
+    className={props.className}
+  />
+)
+
+const PropertyCard: React.FC<Property> = ({ title, mainPicture, location, size, status, _id }) => {
+  const breakpoint = useBreakpoints()
+  const { soldOut } = status
+
   return (
-    <Card className="hover-shadow">
-      <Card.Img variant="top" src={mainPicture} width="10%" />
-      <Card.Body className="pt-2 font-card">
-        <div className="d-md-flex justify-content-between">
-          <Card.Title>{size.display}</Card.Title>
-          <div>
-            <StatusPropertyCheck {...status} />
-          </div>
-        </div>
-        <Card.Text className="font-weight-bold">{title}</Card.Text>
-        <Card.Text className="mt-2 font-small">{location.display}</Card.Text>
-        <div className="justify-content-between d-flex">
-          <Link href={`/property/${_id}`}>
-            <Button size="sm" variant="success">
-              Detail
-            </Button>
-          </Link>
-          <Button className="ml-1" variant="outline-dark" size="sm">
-            <IoIosHeartEmpty />
-          </Button>
-        </div>
-      </Card.Body>
+    <Card className="hover-shadow" style={{ cursor: soldOut ? 'not-allowed' : 'auto' }}>
+      <CardImage src={mainPicture} className={soldOut ? 'sold' : ''} />
+      {soldOut && (
+        <Card.ImgOverlay>
+          {breakpoint === 'sm' ? (
+            <div className="text-center pt-3">
+              <Button size="lg" variant="secondary" disabled>
+                Sudah terjual!
+              </Button>
+            </div>
+          ) : (
+            <div className="text-center pt-5">
+              <Button size="lg" variant="light" disabled>
+                Sudah terjual!
+              </Button>
+            </div>
+          )}
+        </Card.ImgOverlay>
+      )}
+      <CardBody location={location} title={title} size={size} status={status} _id={_id} />
     </Card>
   )
 }

@@ -3,7 +3,7 @@ import { createRef } from 'react'
 import dynamic from 'next/dynamic'
 
 import { Hero, VisitorDealer, Advantages } from '@/components/LandingPage'
-import Layout from '@/components/Layout'
+import Layout from '@/components/Layout/LandingPage'
 import LazyLoad from 'react-lazyload'
 
 const Faq = dynamic(() => import('@/components/LandingPage').then(res => res.Faq))

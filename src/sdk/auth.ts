@@ -30,3 +30,4 @@ export const useSignUp = () => {
 
   return { mutateUserSignUp: mutateAsync, isLoading, user: data }
 }
+// user logout is not sync with authSdk
