@@ -27,7 +27,7 @@ const PropertyCard: React.FC<Property> = ({ title, mainPicture, location, size, 
 
   return (
     <Card className="hover-shadow" style={{ cursor: soldOut ? 'not-allowed' : 'auto' }}>
-      <CardImage src={mainPicture} className={soldOut && 'sold'} />
+      <CardImage src={mainPicture} className={soldOut ? 'sold' : ''} />
       {soldOut && (
         <Card.ImgOverlay>
           {breakpoint === 'sm' ? (

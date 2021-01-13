@@ -6,11 +6,13 @@ const Header = () => {
     <Navbar bg="dark" variant="dark" expand="md">
       <Container className="justify-content-center">
         <Link href="/dashboard">
-          <Navbar.Brand>
-            <img src="/static/logo.png" alt="logo" className="d-inline-block" width="22" height="22" />
-            <span className="logo-font">tuantanah</span>
-            dashboard
-          </Navbar.Brand>
+          <a>
+            <Navbar.Brand>
+              <img src="/static/logo.png" alt="logo" className="d-inline-block" width="22" height="22" />
+              <span className="logo-font">tuantanah</span>
+              dashboard
+            </Navbar.Brand>
+          </a>
         </Link>
       </Container>
       <style jsx>{`

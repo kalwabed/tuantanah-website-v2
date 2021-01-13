@@ -1,4 +1,5 @@
 import {
+  apiPropertyById,
   getPropertyByUserId as propByUserId,
   propertySoldOut as propSoldOut,
   removeProperty as rmProperty
@@ -8,16 +9,15 @@ import { useState } from 'react'
 import { useMutation, useQuery } from 'react-query'
 
 function getPropertyByUserID(userId: string) {
-  const dateFmt = (date): Date => new Date(date)
-  const [updatedAt, setUpdatedAt] = useState<Date | null>(null)
-  const { data, isLoading, dataUpdatedAt } = useQuery(['userProperties', userId], () => propByUserId(userId), {
+  const [updatedAt, setUpdatedAt] = useState<Date | number>(Date.now())
+  const { data, isLoading, isFetching } = useQuery(['userProperties', userId], () => propByUserId(userId), {
     onError: err => {
       console.error(err)
       alert('Tampaknya ada kesalahan saat mengambil data dari pengguna')
     },
-    onSuccess: () => setUpdatedAt(dateFmt(dataUpdatedAt))
+    onSuccess: () => setUpdatedAt(Date.now())
   })
-  return { properties: data?.property as Property[], isLoading, updatedAt }
+  return { properties: data?.property as Property[], isLoading, updatedAt, isFetching }
 }
 
 function propertySoldOut() {
@@ -41,4 +41,15 @@ function removeProperty() {
   return { removeProperty: mutateAsync }
 }
 
-export default { getPropertyByUserID, propertySoldOut, removeProperty }
+function getPropertyById(propertyId: string) {
+  const { data, isLoading } = useQuery(['userProperty', propertyId], () => apiPropertyById(propertyId), {
+    onError: err => {
+      console.error(err)
+      throw new Error('Kesalahan saat mengambil properti')
+    }
+  })
+
+  return { property: data?.property, isLoading }
+}
+
+export default { getPropertyByUserID, getPropertyById, propertySoldOut, removeProperty }

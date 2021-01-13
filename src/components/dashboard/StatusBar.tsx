@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { Badge, Button, Col, Row } from 'react-bootstrap'
 import { IoIosAddCircle, IoIosCheckmarkCircle, IoIosJournal, IoIosLogOut } from 'react-icons/io'
 import format from 'date-fns/format'
+import { IoCloudDoneOutline, IoCloudDownloadOutline } from 'react-icons/io5'
 
 import { useAuthContext } from '@/contexts/AuthContext'
 import ConfirmationModal from '@/shared/ConfirmationModal'
@@ -10,13 +11,15 @@ import ConfirmationModal from '@/shared/ConfirmationModal'
 interface StatusProps {
   onLogout: () => void
   setShowModal: (showModal: boolean) => void
-  updatedAt: Date
+  updatedAt: Date | number
+  isFetching: boolean
 }
 
 const StatusBar = (props: StatusProps) => {
-  const { onLogout, setShowModal, updatedAt } = props
+  const { onLogout, setShowModal, updatedAt, isFetching } = props
   const [showConfirmModal, setShowConfirmModal] = useState(false)
   const { user } = useAuthContext()
+
   return (
     <Row>
       <Col md={8}>
@@ -40,8 +43,10 @@ const StatusBar = (props: StatusProps) => {
         <Button variant="outline-secondary" size="sm" onClick={() => setShowConfirmModal(true)}>
           Keluar <IoIosLogOut />
         </Button>
-        <Badge variant="light" as="span">
-          update terakhir {updatedAt && format(updatedAt, 'kk : mm : ss')}
+        <Badge variant="light" as="div">
+          Data terbaru pukul
+          <span className="mx-1">{updatedAt && format(updatedAt, 'kk : mm : ss')}</span>
+          {isFetching ? <IoCloudDownloadOutline fontSize="1.5rem" /> : <IoCloudDoneOutline fontSize="1.5rem" />}
         </Badge>
       </Col>
       <ConfirmationModal

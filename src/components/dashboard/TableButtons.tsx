@@ -1,5 +1,5 @@
 import { Property } from '@/shared/interface'
-import { useRouter } from 'next/router'
+import Router from 'next/router'
 import { Button, ButtonGroup } from 'react-bootstrap'
 import { IoMdCheckmark, IoMdCreate, IoMdTrash, IoMdEye } from 'react-icons/io'
 
@@ -12,22 +12,21 @@ interface Props {
 
 const TableButtons = (props: Props) => {
   const { onModal, property: prop } = props
-  const router = useRouter()
 
-  const onDetail = (id: string) => {
-    router.push(`/dashboard/property/${id}`)
+  const onDetail = () => {
+    Router.push(`/dashboard/property/${prop._id}`)
   }
 
-  const onUpdate = (id: string) => {
-    router.push(`/dashboard/property/up/${id}`)
+  const onUpdate = () => {
+    Router.push(`/dashboard/property/up/${prop._id}`)
   }
 
   return (
     <ButtonGroup aria-label="table-actions">
-      <Button size="sm" variant="info" onClick={() => onDetail(prop._id)}>
+      <Button size="sm" variant="info" onClick={() => onDetail()}>
         <IoMdEye />
       </Button>
-      <Button size="sm" variant="warning" onClick={() => onUpdate(prop._id)}>
+      <Button size="sm" variant="warning" onClick={() => onUpdate()}>
         <IoMdCreate />
       </Button>
       <Button size="sm" variant="success" onClick={() => onModal({ id: prop._id, title: prop.title, type: 'soldOut' })}>

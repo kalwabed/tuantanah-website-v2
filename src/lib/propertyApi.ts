@@ -53,3 +53,11 @@ export async function removeProperty(propertyId: string): Promise<ApiResponse> {
     throw new Error('[Error]: propertyApi (53)')
   }
 }
+
+export async function apiPropertyById(propertyId: string): Promise<{ property: Property; success: boolean }> {
+  try {
+    return await fetcher({ route: `/v/property/${propertyId}`, method: 'get' })
+  } catch (err) {
+    throw new Error('[Error]: apiPropertyById (61)')
+  }
+}
