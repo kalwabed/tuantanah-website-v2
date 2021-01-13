@@ -9,7 +9,7 @@ interface ActionProps {
 }
 
 const ModalActions = (props: ActionProps) => {
-  const { pickProperty, setShow, show } = props
+  const { pickProperty, setShow, show, onRemove, onSoldOut } = props
   return (
     <Modal show={show} backdrop="static">
       <Modal.Header closeButton onHide={() => setShow(false)}>
@@ -34,11 +34,11 @@ const ModalActions = (props: ActionProps) => {
             Batal
           </button>
           {pickProperty.type === 'soldOut' ? (
-            <button className="ml-1 btn btn-success" onClick={() => handleSoldOut(pickProperty.id)}>
+            <button className="ml-1 btn btn-success" onClick={() => onSoldOut(pickProperty.id)}>
               Terjual
             </button>
           ) : (
-            <button className="ml-1 btn btn-danger" onClick={() => handleRemove(pickProperty.id)}>
+            <button className="ml-1 btn btn-danger" onClick={() => onRemove(pickProperty.id)}>
               Hapus
             </button>
           )}

@@ -47,7 +47,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { property } = await getPropertyById(pid)
 
   return {
-    props: { property }
+    props: { property },
+    revalidate: 3
   }
 }
 

@@ -7,6 +7,7 @@ import Link from 'next/link'
 import DashboardLayout from '@/components/Layout/Dashboard'
 import { useAuthContext } from '@/contexts/AuthContext'
 import { useRouter } from 'next/router'
+import UserNotAllowed from '@/shared/UserNotAllowed'
 
 const PropertyDetail = () => {
   const router = useRouter()
@@ -15,20 +16,7 @@ const PropertyDetail = () => {
   const { property, isLoading } = sdk.getPropertyById(pid as string)
 
   if (property && user._id !== property.userId._id) {
-    return (
-      <DashboardLayout>
-        <Container>
-          <div className="text-center">
-            <h1>Anda tidak punya akses untuk melihat detail dari properti ini!</h1>
-            <Link href="/dashboard" passHref>
-              <Button as="a" variant="secondary">
-                Kembali
-              </Button>
-            </Link>
-          </div>
-        </Container>
-      </DashboardLayout>
-    )
+    return <UserNotAllowed />
   }
 
   if (!user) {
