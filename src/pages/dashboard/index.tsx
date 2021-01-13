@@ -31,7 +31,7 @@ const Dashboard = () => {
           showModal={showModal}
         />
 
-        <StatusBar onLogout={handleLogout} setShowModal={setShowModal} updatedAt={updatedAt} />
+        <StatusBar onLogout={handleLogout} setShowModal={setShowModal} updatedAt={updatedAt || new Date()} />
         {isLoading && (
           <span className="flex-inline">
             Memuat <Spinner variant="success" animation="grow" />
