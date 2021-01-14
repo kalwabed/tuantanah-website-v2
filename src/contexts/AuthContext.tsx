@@ -3,14 +3,14 @@ import jwt from 'jsonwebtoken'
 import { useLocalStorage } from '@/lib/envUtil'
 import useAuth from '@/utils/useAuth'
 
-type UserCredential = { email: string; fullName: string; _id: string }
+export type UserCredential = { email: string; fullName: string; _id: string }
 
 export interface AuthCtx {
   user: UserCredential | null
 }
 
 const AuthContext = createContext<AuthCtx | undefined>(undefined)
-// TODO: find solution to fix the 'blink' on user session on some pages
+
 const Provider = ({ children }) => {
   const { checkUserSession } = useAuth()
 

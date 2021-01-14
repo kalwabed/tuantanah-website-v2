@@ -1,12 +1,23 @@
 import {
+  apiAddProperty,
+  apiKotaByProv,
   apiPropertyById,
+  apiProvinsi,
   getPropertyByUserId as propByUserId,
   propertySoldOut as propSoldOut,
-  removeProperty as rmProperty
+  removeProperty as rmProperty,
+  apiGetAllProperties,
+  apiCreateCertificate
 } from '@/lib/propertyApi'
 import { Property } from '@/shared/interface'
 import { useState } from 'react'
-import { useMutation, useQuery } from 'react-query'
+import { useMutation, useQuery, useQueryClient } from 'react-query'
+
+function getAllProperties() {
+  const { data, isLoading, isFetching } = useQuery('properties', apiGetAllProperties)
+
+  return { properties: data?.properties as Property[], isLoading, isFetching }
+}
 
 function getPropertyByUserID(userId: string) {
   const [updatedAt, setUpdatedAt] = useState<Date | number>(Date.now())
@@ -21,20 +32,28 @@ function getPropertyByUserID(userId: string) {
 }
 
 function propertySoldOut() {
+  const qClient = useQueryClient()
   const { mutateAsync } = useMutation(propSoldOut, {
     onError: err => {
       console.error(err)
       throw new Error('Kesalahan saat mengubah properti')
+    },
+    onSuccess: () => {
+      qClient.invalidateQueries('userProperties')
     }
   })
   return { soldOut: mutateAsync }
 }
 
 function removeProperty() {
+  const qClient = useQueryClient()
   const { mutateAsync } = useMutation(rmProperty, {
     onError: err => {
       console.error(err)
       throw new Error('Kesalahan saat menghapus properti')
+    },
+    onSuccess: () => {
+      qClient.invalidateQueries('userProperties')
     }
   })
 
@@ -52,4 +71,55 @@ function getPropertyById(propertyId: string) {
   return { property: data?.property, isLoading }
 }
 
-export default { getPropertyByUserID, getPropertyById, propertySoldOut, removeProperty }
+function getKotaByProv(provId: number) {
+  const { isFetching, isLoading, data } = useQuery(['kota', provId], () => apiKotaByProv(provId), {
+    onError: err => {
+      throw new Error(err.toString())
+    }
+  })
+
+  return { isFetching, isLoading, cities: data }
+}
+
+function getProvinsi() {
+  const { data, isLoading } = useQuery('provinsi', () => apiProvinsi(), { refetchOnMount: false })
+
+  return { provinces: data, isLoading }
+}
+
+function addProperty() {
+  const { mutateAsync, isLoading } = useMutation(apiAddProperty, {
+    onError: err => {
+      console.error(err)
+      throw new Error('Tampaknya ada kesalahan saat menambah properti')
+    }
+  })
+
+  return { mutateAsync, mutateIsLoading: isLoading }
+}
+
+function createCertificate() {
+  const qClient = useQueryClient()
+  const { isLoading, mutateAsync } = useMutation(apiCreateCertificate, {
+    onSuccess: () => {
+      qClient.invalidateQueries('userProperties')
+    },
+    onError: () => {
+      throw new Error('Ups! tampaknya ada kesalahan saat membuat sertifikat')
+    }
+  })
+
+  return { mutateAsync, isLoading }
+}
+
+export default {
+  getKotaByProv,
+  getProvinsi,
+  createCertificate,
+  addProperty,
+  getPropertyByUserID,
+  getPropertyById,
+  propertySoldOut,
+  getAllProperties,
+  removeProperty
+}

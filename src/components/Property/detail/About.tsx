@@ -38,7 +38,7 @@ const About = (props: Property) => {
                 layout="responsive"
                 alt={title}
                 onClick={() => window.open(mainPicture, '_blank')}
-                className="img-gallery"
+                className="img-gallery card-img"
               />
             </Card>
           </Col>

@@ -17,7 +17,7 @@ const CardImage = (props: { src: string; className?: string }) => (
     sizes="50vh"
     width={100}
     height={80}
-    className={props.className}
+    className={props.className.concat(' card-img')}
   />
 )
 

@@ -6,7 +6,7 @@ interface FetcherProps {
 
 export async function fetcher(props: FetcherProps) {
   const { method = 'post', data, route = '' } = props
-  if (method === 'post') {
+  if (method === 'post' || method === 'put') {
     return await (
       await fetch(`${process.env.NEXT_PUBLIC_ENDPOINT}${route}`, {
         method,

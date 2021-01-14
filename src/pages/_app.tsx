@@ -3,12 +3,13 @@ import 'gridjs/dist/theme/mermaid.css'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { ReactQueryDevtools } from 'react-query/devtools'
-import { QueryClient, QueryClientProvider } from 'react-query'
+import { QueryCache, QueryClient, QueryClientProvider } from 'react-query'
 import { Toaster } from 'react-hot-toast'
 import AuthContext from '@/contexts/AuthContext'
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const queryClient = new QueryClient()
+  const queryCache = new QueryCache()
+  const queryClient = new QueryClient({ queryCache: queryCache })
   return (
     <>
       <Head>
