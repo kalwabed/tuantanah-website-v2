@@ -1,4 +1,5 @@
 import { Property } from '@/shared/interface'
+import { FcDataBackup } from 'react-icons/fc'
 import { fetcher } from './apiConfig'
 
 export interface ServerResponseAfterTransaction {
@@ -89,6 +90,19 @@ export const apiAddProperty = async (formData: FormData) => {
         body: formData
       })
     ).json()) as ServerResponseAfterTransaction
+  } catch (err) {
+    throw new Error(err)
+  }
+}
+
+export const apiCreateCertificate = async (data: FormData) => {
+  try {
+    return await (
+      await fetch(`${process.env.NEXT_PUBLIC_ENDPOINT}/d/certificate`, {
+        method: 'post',
+        body: data
+      })
+    ).json()
   } catch (err) {
     throw new Error(err)
   }

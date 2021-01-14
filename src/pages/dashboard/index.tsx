@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Container, Spinner } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 import toast from 'react-hot-toast'
 
 import ModalShowProperty from '@/components/dashboard/ModalShowProperty'
@@ -37,11 +37,7 @@ const Dashboard = () => {
         />
 
         <StatusBar onLogout={handleLogout} setShowModal={setShowModal} updatedAt={updatedAt} isFetching={isFetching} />
-        {isLoading && (
-          <span className="flex-inline">
-            Memuat <Spinner variant="success" animation="grow" />
-          </span>
-        )}
+        {isLoading && <AuthLoader />}
       </Container>
       {!isLoading && <PropertyTable properties={properties} />}
     </DashboardLayout>

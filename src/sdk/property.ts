@@ -6,7 +6,8 @@ import {
   getPropertyByUserId as propByUserId,
   propertySoldOut as propSoldOut,
   removeProperty as rmProperty,
-  apiGetAllProperties
+  apiGetAllProperties,
+  apiCreateCertificate
 } from '@/lib/propertyApi'
 import { Property } from '@/shared/interface'
 import { useState } from 'react'
@@ -97,9 +98,24 @@ function addProperty() {
   return { mutateAsync, mutateIsLoading: isLoading }
 }
 
+function createCertificate() {
+  const qClient = useQueryClient()
+  const { isLoading, mutateAsync } = useMutation(apiCreateCertificate, {
+    onSuccess: () => {
+      qClient.invalidateQueries('userProperties')
+    },
+    onError: () => {
+      throw new Error('Ups! tampaknya ada kesalahan saat membuat sertifikat')
+    }
+  })
+
+  return { mutateAsync, isLoading }
+}
+
 export default {
   getKotaByProv,
   getProvinsi,
+  createCertificate,
   addProperty,
   getPropertyByUserID,
   getPropertyById,
