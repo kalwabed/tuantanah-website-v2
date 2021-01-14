@@ -7,7 +7,8 @@ import {
   propertySoldOut as propSoldOut,
   removeProperty as rmProperty,
   apiGetAllProperties,
-  apiCreateCertificate
+  apiCreateCertificate,
+  apiUpdateProperty
 } from '@/lib/propertyApi'
 import { Property } from '@/shared/interface'
 import { useState } from 'react'
@@ -81,8 +82,8 @@ function getKotaByProv(provId: number) {
   return { isFetching, isLoading, cities: data }
 }
 
-function getProvinsi() {
-  const { data, isLoading } = useQuery('provinsi', () => apiProvinsi(), { refetchOnMount: false })
+function getProvinsi(enabled = true) {
+  const { data, isLoading } = useQuery('provinsi', () => apiProvinsi(), { refetchOnMount: false, enabled })
 
   return { provinces: data, isLoading }
 }
@@ -96,6 +97,17 @@ function addProperty() {
   })
 
   return { mutateAsync, mutateIsLoading: isLoading }
+}
+
+function updateProperty(propertyId: string) {
+  const qClient = useQueryClient()
+  const { mutateAsync, isLoading } = useMutation(apiUpdateProperty, {
+    onSuccess: () => {
+      qClient.invalidateQueries(['userProperty', propertyId])
+    }
+  })
+
+  return { mutateProperty: mutateAsync, isLoading }
 }
 
 function createCertificate() {
@@ -121,5 +133,6 @@ export default {
   getPropertyById,
   propertySoldOut,
   getAllProperties,
+  updateProperty,
   removeProperty
 }

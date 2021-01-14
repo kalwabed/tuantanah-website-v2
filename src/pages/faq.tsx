@@ -4,6 +4,7 @@ import Head from 'next/head'
 import Layout from '@/components/layout/LandingPage'
 
 const Faq = () => {
+  // TODO: fill faq page with some data and interface
   return (
     <Layout>
       <Head>
