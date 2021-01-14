@@ -1,7 +1,8 @@
 import { Property } from '@/shared/interface'
-import { Card, Col, Row } from 'react-bootstrap'
+import { Alert, Card, Col, Row } from 'react-bootstrap'
 import { AiOutlineFacebook, AiOutlineMail, AiOutlineWhatsApp } from 'react-icons/ai'
 import StatusPropertyCheck from '@/helpers/StatusPropertyCheck'
+import StatusPropertyAlert from '@/helpers/StatusPropertyAlert'
 
 const Identity = (props: Property) => {
   const { title, location, size, price, status, contact } = props
@@ -23,6 +24,8 @@ const Identity = (props: Property) => {
                       <div className="h5">
                         <StatusPropertyCheck negotiation={status.negotiation} shm={status.shm} />
                       </div>
+
+                      <StatusPropertyAlert shm={status.shm} />
                     </Card.Body>
                   </Card>
                 </Col>
