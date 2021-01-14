@@ -1,4 +1,4 @@
-import DashboardLayout from '@/components/Layout/Dashboard'
+import DashboardLayout from '@/components/layout/Dashboard'
 import Link from 'next/link'
 import { Button, ButtonGroup, Container } from 'react-bootstrap'
 

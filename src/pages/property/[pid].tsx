@@ -1,13 +1,13 @@
 import type { GetStaticPaths, GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 
-import Layout from '@/components/Layout/LandingPage'
-import About from '@/components/Property/detail/About'
+import Layout from '@/components/layout/LandingPage'
+import About from '@/components/property/detail/About'
 import { getPid, getPropertyById } from '@/lib/propertyApi'
 import { Property } from '@/shared/interface'
-import Gallery from '@/components/Property/detail/Gallery'
-import Description from '@/components/Property/detail/Description'
-import Contacts from '@/components/Property/detail/Contacts'
+import Gallery from '@/components/property/detail/Gallery'
+import Description from '@/components/property/detail/Description'
+import Contacts from '@/components/property/detail/Contacts'
 import AuthLoader from '@/shared/AuthLoader'
 
 interface Props {

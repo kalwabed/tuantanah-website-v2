@@ -8,7 +8,7 @@ import sdk from '@/sdk/property'
 import { useAuthContext } from '@/contexts/AuthContext'
 import StatusBar from '@/components/dashboard/StatusBar'
 import useAuth from '@/utils/useAuth'
-import DashboardLayout from '@/components/Layout/Dashboard'
+import DashboardLayout from '@/components/layout/Dashboard'
 import AuthLoader from '@/shared/AuthLoader'
 
 const Dashboard = () => {

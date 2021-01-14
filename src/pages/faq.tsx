@@ -1,7 +1,7 @@
 import { Jumbotron } from 'react-bootstrap'
 import Head from 'next/head'
 
-import Layout from '@/components/Layout/LandingPage'
+import Layout from '@/components/layout/LandingPage'
 
 const Faq = () => {
   return (

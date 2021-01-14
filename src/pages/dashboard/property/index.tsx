@@ -6,7 +6,7 @@ import Link from 'next/link'
 import AddPropertyForm from '@/components/dashboard/AddPropertyForm'
 import sdk from '@/sdk/property'
 import { useAuthContext } from '@/contexts/AuthContext'
-import DashboardLayout from '@/components/Layout/Dashboard'
+import DashboardLayout from '@/components/layout/Dashboard'
 
 const PageAddProperty = () => {
   const { user } = useAuthContext()

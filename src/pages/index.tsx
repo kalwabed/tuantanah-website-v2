@@ -2,11 +2,11 @@ import { Container } from 'react-bootstrap'
 import { createRef } from 'react'
 import dynamic from 'next/dynamic'
 
-import { Hero, VisitorDealer, Advantages } from '@/components/LandingPage'
-import Layout from '@/components/Layout/LandingPage'
+import { Hero, VisitorDealer, Advantages } from '@/components/landingPage'
+import Layout from '@/components/layout/LandingPage'
 import LazyLoad from 'react-lazyload'
 
-const Faq = dynamic(() => import('@/components/LandingPage').then(res => res.Faq))
+const Faq = dynamic(() => import('@/components/landingPage').then(res => res.Faq))
 
 export default function Home() {
   const refVisitorDealer = createRef<HTMLDivElement>()
