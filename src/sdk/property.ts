@@ -5,11 +5,18 @@ import {
   apiProvinsi,
   getPropertyByUserId as propByUserId,
   propertySoldOut as propSoldOut,
-  removeProperty as rmProperty
+  removeProperty as rmProperty,
+  apiGetAllProperties
 } from '@/lib/propertyApi'
 import { Property } from '@/shared/interface'
 import { useState } from 'react'
 import { useMutation, useQuery, useQueryClient } from 'react-query'
+
+function getAllProperties() {
+  const { data, isLoading, isFetching } = useQuery('properties', apiGetAllProperties)
+
+  return { properties: data?.properties as Property[], isLoading, isFetching }
+}
 
 function getPropertyByUserID(userId: string) {
   const [updatedAt, setUpdatedAt] = useState<Date | number>(Date.now())
@@ -97,5 +104,6 @@ export default {
   getPropertyByUserID,
   getPropertyById,
   propertySoldOut,
+  getAllProperties,
   removeProperty
 }

@@ -12,7 +12,7 @@ export interface ServerResponseAfterTransaction {
   success: boolean
 }
 
-export async function getAllProperty() {
+export async function apiGetAllProperties() {
   try {
     return await fetcher({ method: 'get', route: '/v2/v' })
   } catch (err) {

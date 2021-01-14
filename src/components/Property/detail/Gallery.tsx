@@ -30,7 +30,7 @@ const Gallery = ({ gallery }: Pick<Property, 'gallery'>) => {
                 src={img.imageUrl}
                 width={50}
                 height={40}
-                className="img-gallery"
+                className="img-gallery card-img"
                 layout="responsive"
                 alt={img.imageUrl}
                 key={img.imageUrl}

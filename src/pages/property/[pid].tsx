@@ -1,6 +1,5 @@
 import type { GetStaticPaths, GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
-import { Spinner } from 'react-bootstrap'
 
 import Layout from '@/components/Layout/LandingPage'
 import About from '@/components/Property/detail/About'
@@ -9,6 +8,7 @@ import { Property } from '@/shared/interface'
 import Gallery from '@/components/Property/detail/Gallery'
 import Description from '@/components/Property/detail/Description'
 import Contacts from '@/components/Property/detail/Contacts'
+import AuthLoader from '@/shared/AuthLoader'
 
 interface Props {
   property: Property
@@ -17,11 +17,7 @@ interface Props {
 const PropertyDetail = ({ property }: Props) => {
   const { isFallback } = useRouter()
   if (isFallback) {
-    return (
-      <span className="text-center mx-auto h2">
-        Memuat data <Spinner animation="grow" />
-      </span>
-    )
+    return <AuthLoader />
   }
   return (
     <Layout>
