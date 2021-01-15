@@ -10,8 +10,8 @@ const Footer = () => {
         <Row>
           <Col md={4}>
             <p className="">
-              <span className="logo-font">tuantanah</span> adalah adalah platform digital yang membantu anda mencari
-              properti impian anda dengan praktis tanpa prasyarat akun atau yang lainnya.
+              <span className="logo-font">tuantanah</span> adalah platform digital yang membantu anda mencari properti
+              impian anda dengan praktis tanpa prasyarat akun atau yang lainnya.
             </p>
             <p className="m-0 font-weight-normal">Follow us</p>
             <div className="d-flex justify-content-start">
