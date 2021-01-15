@@ -2,7 +2,7 @@ import { Container } from 'react-bootstrap'
 
 import { useAuthContext } from '@/contexts/AuthContext'
 import sdk from '@/sdk/property'
-import DashboardLayout from '@/components/Layout/Dashboard'
+import DashboardLayout from '@/components/layout/Dashboard'
 import AuthLoader from '@/shared/AuthLoader'
 import VerificationForm from '@/components/dashboard/verification/Form'
 

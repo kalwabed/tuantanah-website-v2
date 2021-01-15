@@ -1,4 +1,3 @@
-import 'react-quill/dist/quill.snow.css'
 import { IoMdArrowRoundBack, IoMdRocket } from 'react-icons/io'
 import { Container, Card, Button } from 'react-bootstrap'
 import Link from 'next/link'
@@ -6,7 +5,7 @@ import Link from 'next/link'
 import AddPropertyForm from '@/components/dashboard/AddPropertyForm'
 import sdk from '@/sdk/property'
 import { useAuthContext } from '@/contexts/AuthContext'
-import DashboardLayout from '@/components/Layout/Dashboard'
+import DashboardLayout from '@/components/layout/Dashboard'
 
 const PageAddProperty = () => {
   const { user } = useAuthContext()

@@ -95,6 +95,19 @@ export const apiAddProperty = async (formData: FormData) => {
   }
 }
 
+export const apiUpdateProperty = async (formData: FormData) => {
+  try {
+    return (await (
+      await fetch(`${process.env.NEXT_PUBLIC_ENDPOINT}/d/property`, {
+        method: 'put',
+        body: formData
+      })
+    ).json()) as ServerResponseAfterTransaction
+  } catch (err) {
+    throw new Error(err)
+  }
+}
+
 export const apiCreateCertificate = async (data: FormData) => {
   try {
     return await (

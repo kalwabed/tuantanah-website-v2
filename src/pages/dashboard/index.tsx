@@ -8,7 +8,7 @@ import sdk from '@/sdk/property'
 import { useAuthContext } from '@/contexts/AuthContext'
 import StatusBar from '@/components/dashboard/StatusBar'
 import useAuth from '@/utils/useAuth'
-import DashboardLayout from '@/components/Layout/Dashboard'
+import DashboardLayout from '@/components/layout/Dashboard'
 import AuthLoader from '@/shared/AuthLoader'
 
 const Dashboard = () => {
@@ -16,6 +16,8 @@ const Dashboard = () => {
   const { userSignOut } = useAuth()
   const { properties, isLoading, updatedAt, isFetching } = sdk.getPropertyByUserID(user?._id)
   const [showModal, setShowModal] = useState(false)
+
+  const sortedProperties = properties?.sort((a, b) => Number(new Date(b.updatedAt)) - Number(new Date(a.updatedAt)))
 
   const handleLogout = () => {
     userSignOut('/')
@@ -39,7 +41,7 @@ const Dashboard = () => {
         <StatusBar onLogout={handleLogout} setShowModal={setShowModal} updatedAt={updatedAt} isFetching={isFetching} />
         {isLoading && <AuthLoader />}
       </Container>
-      {!isLoading && <PropertyTable properties={properties} />}
+      {!isLoading && <PropertyTable properties={sortedProperties} />}
     </DashboardLayout>
   )
 }

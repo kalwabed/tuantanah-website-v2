@@ -3,7 +3,7 @@ import { IoMdArrowRoundBack } from 'react-icons/io'
 
 import sdk from '@/sdk/property'
 import Link from 'next/link'
-import DashboardLayout from '@/components/Layout/Dashboard'
+import DashboardLayout from '@/components/layout/Dashboard'
 import { useAuthContext } from '@/contexts/AuthContext'
 import { useRouter } from 'next/router'
 import UserNotAllowed from '@/shared/UserNotAllowed'

@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 import { Container, Row, Col, Button, Spinner } from 'react-bootstrap'
 
@@ -17,9 +18,11 @@ const Faq = () => {
               Masih ragu atau bingung? kami telah mengampu pertanyaan-pertanyaan yang sering muncul dan mungkin bisa
               membantu anda
             </p>
-            <Button size="sm" variant="success">
-              Questions
-            </Button>
+            <Link href="/faq" passHref>
+              <Button size="sm" variant="success" as="a">
+                Pertanyaan
+              </Button>
+            </Link>
           </Col>
         </Row>
       </Container>

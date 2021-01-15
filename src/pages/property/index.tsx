@@ -1,9 +1,9 @@
 import { Container, Spinner } from 'react-bootstrap'
 
-import Layout from '@/components/Layout/LandingPage'
+import Layout from '@/components/layout/LandingPage'
 import sdk from '@/sdk/property'
-import PropertyList from '@/components/Property/List'
-import SearchBar from '@/components/Property/SearchBar'
+import PropertyList from '@/components/property/List'
+import SearchBar from '@/components/property/SearchBar'
 import { useState } from 'react'
 import AuthLoader from '@/shared/AuthLoader'
 

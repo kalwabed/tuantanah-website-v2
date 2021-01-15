@@ -18,7 +18,7 @@ const TableButtons = (props: Props) => {
   }
 
   const onUpdate = () => {
-    Router.push(`/dashboard/property/up/${prop._id}`)
+    Router.push(`/dashboard/property/edit/${prop._id}`)
   }
 
   return (
