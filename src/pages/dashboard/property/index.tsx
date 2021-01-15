@@ -1,4 +1,3 @@
-import 'react-quill/dist/quill.snow.css'
 import { IoMdArrowRoundBack, IoMdRocket } from 'react-icons/io'
 import { Container, Card, Button } from 'react-bootstrap'
 import Link from 'next/link'
