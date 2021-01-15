@@ -11,7 +11,7 @@ import { ApiProvinsiResponse, UserInput, Property, ApiKotaKabResponse } from '@/
 import sdk from '@/sdk/property'
 import { UserCredential } from '@/contexts/AuthContext'
 
-const Quill = dynamic(() => import('react-quill'), { ssr: false, loading: () => <Spinner animation="grow" /> })
+const ContentEditor = dynamic(() => import('@/shared/ContentEditor'), { loading: () => <Spinner animation="grow" /> })
 
 interface newInputs extends UserInput {
   gallery: FileList
@@ -30,7 +30,7 @@ const EditPropertyForm = ({
 
   const { register, watch, handleSubmit, errors, setValue } = useForm<newInputs>()
   const [kota, setKota] = useState(prop.location.provinceId)
-  const [deskripsi, setDeskripsi] = useState(description)
+  const [deskripsi, setDeskripsi] = useState('')
   const [labelUtama, setLabelUtama] = useState('Unggah foto')
   const [labelGaleri, setLabelGaleri] = useState('Unggah maks. 4 foto')
   const [isLuas, setIsLuas] = useState(isLarge)
@@ -44,7 +44,7 @@ const EditPropertyForm = ({
     formData.append('title', data.title)
     formData.append('provinsi', data.provinsi)
     formData.append('kota', data.kota)
-    formData.append('description', description)
+    formData.append('description', deskripsi)
     formData.append('luas', String(data.luas))
     formData.append('panjang', String(data.panjang))
     formData.append('lebar', String(data.lebar))
@@ -400,7 +400,7 @@ const EditPropertyForm = ({
               <Form.Row className="my-2">
                 <Form.Group as={Col}>
                   <Form.Label htmlFor="deskripsi">Deskripsi</Form.Label>
-                  <Quill theme="snow" value={deskripsi} onChange={setDeskripsi} />
+                  <ContentEditor initialValue={description} setValue={setDeskripsi} />
                   <Form.Text muted>Sertakan deskripsi tentang properti secara detail</Form.Text>
                 </Form.Group>
               </Form.Row>

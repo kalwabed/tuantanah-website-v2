@@ -9,7 +9,8 @@ import toast from 'react-hot-toast'
 import { UserInput, ApiKotaKabResponse, ApiProvinsiResponse } from '@/shared/interface'
 import sdk from '@/sdk/property'
 import { UserCredential } from '@/contexts/AuthContext'
-const Quill = dynamic(() => import('react-quill'), { ssr: false, loading: () => <Spinner animation="grow" /> })
+
+const ContentEditor = dynamic(() => import('@/shared/ContentEditor'), { loading: () => <Spinner animation="grow" /> })
 
 type Props = {
   user: UserCredential
@@ -354,7 +355,7 @@ const AddPropertyForm = ({ user, dataProvinsi }: Props) => {
         <Form.Row className="mb-2">
           <Form.Group as={Col} className="h-100">
             <Form.Label>Deskripsi</Form.Label>
-            <Quill theme="snow" value={description} onChange={setDescription} />
+            <ContentEditor setValue={setDescription} />
             <Form.Text muted>Sertakan deskripsi tentang properti secara detail</Form.Text>
           </Form.Group>
         </Form.Row>

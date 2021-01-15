@@ -12,6 +12,7 @@ import DashboardLayout from '@/components/layout/Dashboard'
 import AuthLoader from '@/shared/AuthLoader'
 
 const Dashboard = () => {
+  // TODO: return properties adn sort by updatedAt
   const { user } = useAuthContext()
   const { userSignOut } = useAuth()
   const { properties, isLoading, updatedAt, isFetching } = sdk.getPropertyByUserID(user?._id)
