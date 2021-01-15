@@ -30,7 +30,7 @@ const EditPropertyForm = ({
 
   const { register, watch, handleSubmit, errors, setValue } = useForm<newInputs>()
   const [kota, setKota] = useState(prop.location.provinceId)
-  const [deskripsi, setDeskripsi] = useState('')
+  const [deskripsi, setDeskripsi] = useState(description)
   const [labelUtama, setLabelUtama] = useState('Unggah foto')
   const [labelGaleri, setLabelGaleri] = useState('Unggah maks. 4 foto')
   const [isLuas, setIsLuas] = useState(isLarge)

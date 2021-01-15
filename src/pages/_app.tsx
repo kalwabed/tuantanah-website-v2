@@ -70,7 +70,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
         .footer {
           padding-top: 8rem;
-          padding-bottom: 5rem;
+          padding-bottom: 2rem;
         }
 
         .link-footer {

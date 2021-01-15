@@ -10,7 +10,7 @@ const Faq = () => {
       <Head>
         <title>Faq | TuanTanah</title>
       </Head>
-      <div className="my-3">
+      <div className="my-4">
         <Jumbotron fluid>
           <div className="text-center">
             Anda sampai pada halaman <b>Faq</b>
