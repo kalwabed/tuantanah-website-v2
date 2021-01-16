@@ -6,7 +6,7 @@ import { Hero, VisitorDealer, Advantages } from '@/components/landingPage'
 import Layout from '@/components/layout/LandingPage'
 import LazyLoad from 'react-lazyload'
 
-const Faq = dynamic(() => import('@/components/landingPage').then(res => res.Faq))
+const Help = dynamic(() => import('@/components/landingPage').then(res => res.Help))
 
 export default function Home() {
   // TODO: add SEO
@@ -22,7 +22,7 @@ export default function Home() {
         <Advantages />
       </LazyLoad>
       <VisitorDealer refVisitorDealer={refVisitorDealer} />
-      <Faq />
+      <Help />
     </Layout>
   )
 }

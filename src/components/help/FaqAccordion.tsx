@@ -5,7 +5,7 @@ const FaqAccordion = () => {
   return (
     <Accordion>
       {content.map(({ answer, ask }, i) => (
-        <Card>
+        <Card key={ask.normalize()}>
           <Accordion.Toggle as={Card.Header} eventKey={i.toString()} style={{ cursor: 'pointer' }}>
             {ask}
           </Accordion.Toggle>
