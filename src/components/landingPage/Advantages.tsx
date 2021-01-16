@@ -1,6 +1,7 @@
 import { IoIosRocket } from 'react-icons/io'
 import { Row, Col, Container } from 'react-bootstrap'
 import { FaTh, FaRegHandshake } from 'react-icons/fa'
+import content from './content'
 
 const Advantages = () => {
   return (
@@ -10,25 +11,17 @@ const Advantages = () => {
           <Col md={4} sm={4}>
             <IoIosRocket size="120" />
             <h2 className="my-3">Cepat</h2>
-            <p className="lead ">
-              Tanpa harus mendaftar dulu dan mengisi ini dan itu, anda bisa langsung mencari properti anda!
-            </p>
+            <p className="lead ">{content.fast}</p>
           </Col>
           <Col md={4} sm={4}>
             <FaTh size="120" />
             <h2 className="my-3">Kuantitas</h2>
-            <p className="lead ">
-              Menyediakan lebih dari 170 lahan/properti dari berbagai wilayah di Indonesia dan bekerja sama dengan lebih
-              dari 15 perusahaan swasta
-            </p>
+            <p className="lead ">{content.quantity}</p>
           </Col>
           <Col md={4} sm={4}>
             <FaRegHandshake size="120" />
             <h2 className="my-3">Terpercaya</h2>
-            <p className="lead ">
-              <span className="logo-font">tuantanah</span> telah membantu lebih dari 73 transaksi properti di seluruh
-              Indonesia
-            </p>
+            <p className="lead " dangerouslySetInnerHTML={{ __html: content.trusted }} />
           </Col>
         </Row>
       </Container>

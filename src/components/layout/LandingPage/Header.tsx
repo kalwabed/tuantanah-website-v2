@@ -42,8 +42,8 @@ const Header = () => {
             <Link href="/property">
               <a className={`nav-link mr-auto ${asPath === '/property' ? 'active' : null}`}>Property</a>
             </Link>
-            <Link href="/faq">
-              <a className={`nav-link mr-3 ${asPath === '/faq' ? 'active' : null}`}>Faq</a>
+            <Link href="/help">
+              <a className={`nav-link mr-3 ${asPath === '/help' ? 'active' : null}`}>Help</a>
             </Link>
           </Nav>
           <UserButton fullName={user?.fullName} cookie={useCookie('get')} handleLogout={handleLogout} />

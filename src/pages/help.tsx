@@ -2,13 +2,13 @@ import { Container, Jumbotron } from 'react-bootstrap'
 import Head from 'next/head'
 
 import Layout from '@/components/layout/LandingPage'
-import FaqAccordion from '@/components/faq/FaqAccordion'
+import FaqAccordion from '@/components/help/FaqAccordion'
 
-const Faq = () => {
+const Help = () => {
   return (
     <Layout>
       <Head>
-        <title>Faq | TuanTanah</title>
+        <title>Help | TuanTanah</title>
       </Head>
       <Jumbotron className="text-center">
         <h1>Bantuan Pengguna</h1>
@@ -23,4 +23,4 @@ const Faq = () => {
   )
 }
 
-export default Faq
+export default Help

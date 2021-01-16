@@ -2,6 +2,7 @@ import { FcKey, FcManager, FcGlobe } from 'react-icons/fc'
 import { Row, Col, Button, Spinner } from 'react-bootstrap'
 
 import LazyLoad from 'react-lazyload'
+import content from './content'
 
 const Hero = ({ refVisitorDealer }: { refVisitorDealer: any | null }) => {
   const showVisLer = () => {
@@ -18,12 +19,7 @@ const Hero = ({ refVisitorDealer }: { refVisitorDealer: any | null }) => {
           <p className="h2 font-weight-bold">
             Wujudkan Properti Impian Anda Bersama <span className="text-success logo-font">tuantanah</span>
           </p>
-          <p className="font-weight-light mb-4 text-wrap">
-            <span className="logo-font">tuantanah</span> adalah platform digital yang membantu anda mencari properti
-            impian anda dengan praktis tanpa prasyarat akun atau yang lainnya.
-            <br />
-            Cari properti impian anda dan bangun bisnis anda sekarang!
-          </p>
+          <p className="font-weight-light mb-4 text-wrap" dangerouslySetInnerHTML={{ __html: content.hero }} />
           <div className="mb-4" style={{ marginTop: 30 }}>
             <Button className="shadow-lg pr-4" size="lg" variant="success" onClick={showVisLer}>
               Show Me
@@ -52,7 +48,7 @@ const Hero = ({ refVisitorDealer }: { refVisitorDealer: any | null }) => {
         </Col>
         <Col className="d-none d-md-block">
           <LazyLoad once height={200} placeholder={<Spinner animation="grow" />}>
-            <img src="/static/hero.svg" width="580" height="350" alt="image" />
+            <img src={content.assets.hero} width="580" height="350" alt="image" />
           </LazyLoad>
         </Col>
       </Row>

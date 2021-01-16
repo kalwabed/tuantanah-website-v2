@@ -1,26 +1,24 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { Container, Row, Col, Button, Spinner } from 'react-bootstrap'
 
 import LazyLoad from 'react-lazyload'
+import content from './content'
 
-const Faq = () => {
+const Help = () => {
   return (
     <div className="section section-lg bg-dark text-light">
       <Container>
         <Row>
           <Col md={12} sm={12} className="text-center">
-            <p className="h2 my-3 font-weight-bold">FAQ</p>
             <LazyLoad once height={100} offset={100} placeholder={<Spinner animation="border" />}>
-              <img src="/static/section6.svg" alt="gambar" width="300" height="300" />
+              <Image src={content.assets.help} alt="help" width={30} height={15} layout="responsive" />
             </LazyLoad>
-            <p className="mb-3 font-weight-light h5">
-              Masih ragu atau bingung? kami telah mengampu pertanyaan-pertanyaan yang sering muncul dan mungkin bisa
-              membantu anda
-            </p>
-            <Link href="/faq" passHref>
+            <p className="mb-3 font-weight-light h5">{content.help}</p>
+            <Link href="/help" passHref>
               <Button size="sm" variant="success" as="a">
-                Pertanyaan
+                Bantuan
               </Button>
             </Link>
           </Col>
@@ -30,4 +28,4 @@ const Faq = () => {
   )
 }
 
-export default Faq
+export default Help
