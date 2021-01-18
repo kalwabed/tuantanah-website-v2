@@ -9,9 +9,7 @@ import LazyLoad from 'react-lazyload'
 const Help = dynamic(() => import('@/components/landingPage').then(res => res.Help))
 
 export default function Home() {
-  // TODO: add SEO
   const refVisitorDealer = createRef<HTMLDivElement>()
-
   return (
     <Layout>
       <Container>

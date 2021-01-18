@@ -4,6 +4,7 @@ import { toast } from 'react-hot-toast'
 import LoginCard from '@/components/auth/login/Card'
 import { useAuthContext } from '@/contexts/AuthContext'
 import AuthLoader from '@/shared/AuthLoader'
+import SEO from '@/components/SEO'
 
 const Login = () => {
   const { user } = useAuthContext()
@@ -17,7 +18,12 @@ const Login = () => {
     return <AuthLoader />
   }
 
-  return <LoginCard />
+  return (
+    <>
+      <SEO title="Masuk" />
+      <LoginCard />
+    </>
+  )
 }
 
 export default Login

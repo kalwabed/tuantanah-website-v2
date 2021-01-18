@@ -1,15 +1,11 @@
 import { Container, Jumbotron } from 'react-bootstrap'
-import Head from 'next/head'
 
 import Layout from '@/components/layout/LandingPage'
 import FaqAccordion from '@/components/help/FaqAccordion'
 
 const Help = () => {
   return (
-    <Layout>
-      <Head>
-        <title>Help | TuanTanah</title>
-      </Head>
+    <Layout title="Bantuan">
       <Jumbotron className="text-center">
         <h1>Bantuan Pengguna</h1>
         <span className="text-muted">

@@ -69,7 +69,7 @@ const UserButton = ({ fullName = '', cookie = '', handleLogout = () => null }) =
   ) : (
     <Link href="/login">
       <Button size="sm" className="ml-2" variant="success">
-        masuk sebagai penjual <IoIosLogIn />
+        masuk <IoIosLogIn />
       </Button>
     </Link>
   )

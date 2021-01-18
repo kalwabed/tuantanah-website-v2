@@ -16,7 +16,7 @@ const EditProperty = () => {
   const { user } = useAuthContext()
 
   return (
-    <DashboardLayout>
+    <DashboardLayout title={property?.title + ' @Edit'}>
       <div className="mt-3" />
       <Link href="/dashboard" passHref>
         <Button variant="light" size="lg" className="my-2 ml-2" as="a">

@@ -7,6 +7,8 @@ import { ReactQueryDevtools } from 'react-query/devtools'
 import { QueryCache, QueryClient, QueryClientProvider } from 'react-query'
 import { Toaster } from 'react-hot-toast'
 import AuthContext from '@/contexts/AuthContext'
+import { DefaultSeo } from 'next-seo'
+import seo from 'next-seo.config'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const queryCache = new QueryCache()
@@ -25,6 +27,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <QueryClientProvider client={queryClient}>
         <AuthContext.Provider>
+          <DefaultSeo {...seo} />
           <Component {...pageProps} />
         </AuthContext.Provider>
         <Toaster toastOptions={{ duration: 5000 }} />

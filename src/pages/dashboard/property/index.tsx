@@ -12,7 +12,7 @@ const PageAddProperty = () => {
   const { provinces, isLoading } = sdk.getProvinsi()
 
   return (
-    <DashboardLayout>
+    <DashboardLayout title="Tambah properti">
       <Container className="my-3">
         <Card>
           <Card.Header>Tambah properti</Card.Header>

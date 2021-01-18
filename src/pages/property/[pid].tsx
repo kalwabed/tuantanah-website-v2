@@ -20,7 +20,7 @@ const PropertyDetail = ({ property }: Props) => {
     return <AuthLoader />
   }
   return (
-    <Layout>
+    <Layout title={property.title}>
       <About {...property} />
       <Gallery gallery={property.gallery} />
       <Description description={property.description} />

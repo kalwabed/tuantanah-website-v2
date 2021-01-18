@@ -27,7 +27,7 @@ const PropertyDetail = () => {
   }
 
   return (
-    <DashboardLayout>
+    <DashboardLayout title={property?.title + ' @Detail'}>
       <Container className="my-3">
         {property && (
           <Link href="/dashboard" passHref>

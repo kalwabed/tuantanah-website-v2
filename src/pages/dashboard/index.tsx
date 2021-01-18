@@ -29,7 +29,7 @@ const Dashboard = () => {
   }
 
   return (
-    <DashboardLayout>
+    <DashboardLayout title="Dashboard">
       <Container className="my-3">
         <ModalShowProperty
           isLoading={isLoading}

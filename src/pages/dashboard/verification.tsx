@@ -11,7 +11,7 @@ const Verification = () => {
   const { properties, isLoading } = sdk.getPropertyByUserID(user?._id)
 
   return (
-    <DashboardLayout>
+    <DashboardLayout title="Verifikasi">
       <Container className="mb-4">
         {isLoading && <AuthLoader />}
         {!isLoading && <VerificationForm properties={properties} />}

@@ -1,4 +1,5 @@
 import SignUpCard from '@/components/auth/signUp/Card'
+import SEO from '@/components/SEO'
 import { useAuthContext } from '@/contexts/AuthContext'
 import AuthLoader from '@/shared/AuthLoader'
 import { useEffect } from 'react'
@@ -15,7 +16,12 @@ const SignUp = () => {
     return <AuthLoader />
   }
 
-  return <SignUpCard />
+  return (
+    <>
+      <SEO title="Daftar" />
+      <SignUpCard />
+    </>
+  )
 }
 
 export default SignUp

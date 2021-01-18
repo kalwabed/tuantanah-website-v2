@@ -19,7 +19,7 @@ const Property = () => {
       .filter(property => property.location.display.toLowerCase().includes(searchValue.toLowerCase()))
 
   return (
-    <Layout>
+    <Layout title="Properti">
       <div className="mb-3">
         <Container>
           <SearchBar
