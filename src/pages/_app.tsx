@@ -7,13 +7,15 @@ import { ReactQueryDevtools } from 'react-query/devtools'
 import { QueryCache, QueryClient, QueryClientProvider } from 'react-query'
 import { Toaster } from 'react-hot-toast'
 import AuthContext from '@/contexts/AuthContext'
-import GlobalStyle from '@/components/GlobalStyle'
+import GlobalStyle from '@/utils/GlobalStyle'
 import { DefaultSeo } from 'next-seo'
 import seo from 'next-seo.config'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const queryCache = new QueryCache()
   const queryClient = new QueryClient({ queryCache: queryCache })
+
+  // TODO: create page that contains only
   return (
     <>
       <Head>
@@ -29,8 +31,8 @@ function MyApp({ Component, pageProps }: AppProps) {
       <QueryClientProvider client={queryClient}>
         <AuthContext.Provider>
           <DefaultSeo {...seo} />
-          <Component {...pageProps} />
           <GlobalStyle />
+          <Component {...pageProps} />
         </AuthContext.Provider>
         <Toaster toastOptions={{ duration: 5000 }} />
         <ReactQueryDevtools />

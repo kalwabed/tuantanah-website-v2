@@ -4,6 +4,16 @@ enum sosmedType {
   'email' = 3
 }
 
+export interface User {
+  fullName: string
+  email: string
+  password: string
+  status?: boolean
+  propertyId?: string[]
+  createdAt: string
+  updatedAt: string
+}
+
 export interface Property {
   _id: string
   title: string
@@ -27,10 +37,7 @@ export interface Property {
     negotiation: boolean
     soldOut: boolean
   }
-  userId: {
-    _id: string
-    fullName: string
-  }
+  userId: User
   gallery: [
     {
       imageUrl: string

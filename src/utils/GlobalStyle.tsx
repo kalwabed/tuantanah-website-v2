@@ -110,5 +110,4 @@ const GlobalStyle = () => {
     `}</style>
   )
 }
-
 export default GlobalStyle

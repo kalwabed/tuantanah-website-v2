@@ -7,11 +7,6 @@ const Contacts = ({ contact }: Pick<Property, 'contact'>) => {
   return (
     <div className="section my-2">
       <Container>
-        <Row>
-          <Col as="h2">
-            Kontak <span className="divider"></span>
-          </Col>
-        </Row>
         <Card style={{ width: '100%', height: '120%' }}>
           <LazyLoad once height={100} offset={30}>
             <Card.Body>

@@ -1,6 +1,6 @@
 {
-  "name": "next-tuantanah",
-  "version": "0.1.0",
+  "name": "tuantanah",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "dev": "next",

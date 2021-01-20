@@ -6,13 +6,8 @@ import Image from 'next/image'
 
 const Gallery = ({ gallery }: Pick<Property, 'gallery'>) => {
   return (
-    <div className="section mt-2">
+    <div className="section my-2">
       <Container>
-        <Row>
-          <Col as="h2">
-            Galeri <span className="divider"></span>
-          </Col>
-        </Row>
         {gallery.length < 1 && (
           <Row>
             <Col xs={12} md={3}>

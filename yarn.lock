@@ -4184,42 +4184,6 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"next-tuantanah@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "next-tuantanah@workspace:."
-  dependencies:
-    "@hookform/error-message": ^0.0.5
-    "@types/js-cookie": ^2.2.6
-    "@types/jsonwebtoken": ^8.5.0
-    "@types/node": ^14.14.20
-    "@types/react": ^17.0.0
-    "@types/react-lazyload": ^3.0.0
-    "@types/uuid": ^8.3.0
-    bootstrap: ^4.5.3
-    date-fns: ^2.16.1
-    gridjs: ^3.2.1
-    gridjs-react: ^3.2.1
-    js-cookie: ^2.2.1
-    jsonwebtoken: ^8.5.1
-    next: 10.0.5
-    next-seo: ^4.17.0
-    pell: ^1.0.6
-    react: 17.0.1
-    react-awesome-reveal: ^3.5.2
-    react-bootstrap: ^1.4.0
-    react-dom: 17.0.1
-    react-hook-form: ^6.14.0
-    react-hot-toast: ^1.0.1
-    react-icons: ^4.1.0
-    react-lazyload: ^3.1.0
-    react-markdown: ^5.0.3
-    react-query: ^3.5.11
-    react-use: ^15.3.8
-    typescript: ^4.1.3
-    uuid: ^8.3.2
-  languageName: unknown
-  linkType: soft
-
 "next@npm:10.0.5":
   version: 10.0.5
   resolution: "next@npm:10.0.5"
@@ -4435,6 +4399,13 @@ fsevents@~2.3.1:
     gauge: ~2.7.3
     set-blocking: ~2.0.0
   checksum: 0cd63f127c1bbda403a112e83b11804aaee2b58b0bc581c3bde9b82e4d957c7ed0ad3bee499af706cdd3599bb93669d7cbbf29fb500407d35fe75687ac96e2c0
+  languageName: node
+  linkType: hard
+
+"nprogress@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "nprogress@npm:0.2.0"
+  checksum: 652dfcfea776f9d9a2c3ad1f79b4cbd3056a03e7c6884966eab70fb184e8e70bfca9e0343ba89d11aa1ed95370d648fb638fab91b5dc027bdad54c8d37c96478
   languageName: node
   linkType: hard
 
@@ -6498,6 +6469,43 @@ fsevents@~2.3.1:
   checksum: ef28fe256a17bac17d094e0120a042aee441efca0a44734082caa697b8326cc9888a8042b754cb6830205b65fe716960ba159597fdbcb8b53abf08ae5c9acd7f
   languageName: node
   linkType: hard
+
+"tuantanah@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "tuantanah@workspace:."
+  dependencies:
+    "@hookform/error-message": ^0.0.5
+    "@types/js-cookie": ^2.2.6
+    "@types/jsonwebtoken": ^8.5.0
+    "@types/node": ^14.14.20
+    "@types/react": ^17.0.0
+    "@types/react-lazyload": ^3.0.0
+    "@types/uuid": ^8.3.0
+    bootstrap: ^4.5.3
+    date-fns: ^2.16.1
+    gridjs: ^3.2.1
+    gridjs-react: ^3.2.1
+    js-cookie: ^2.2.1
+    jsonwebtoken: ^8.5.1
+    next: 10.0.5
+    next-seo: ^4.17.0
+    nprogress: ^0.2.0
+    pell: ^1.0.6
+    react: 17.0.1
+    react-awesome-reveal: ^3.5.2
+    react-bootstrap: ^1.4.0
+    react-dom: 17.0.1
+    react-hook-form: ^6.14.0
+    react-hot-toast: ^1.0.1
+    react-icons: ^4.1.0
+    react-lazyload: ^3.1.0
+    react-markdown: ^5.0.3
+    react-query: ^3.5.11
+    react-use: ^15.3.8
+    typescript: ^4.1.3
+    uuid: ^8.3.2
+  languageName: unknown
+  linkType: soft
 
 "tunnel-agent@npm:^0.6.0":
   version: 0.6.0
