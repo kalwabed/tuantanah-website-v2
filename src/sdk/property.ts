@@ -3,7 +3,7 @@ import {
   apiKotaByProv,
   apiPropertyById,
   apiProvinsi,
-  getPropertyByUserId as propByUserId,
+  apiPropertyByUserId,
   propertySoldOut as propSoldOut,
   removeProperty as rmProperty,
   apiGetAllProperties,
@@ -22,7 +22,7 @@ function getAllProperties() {
 
 function getPropertyByUserID(userId: string) {
   const [updatedAt, setUpdatedAt] = useState<Date | number>(Date.now())
-  const { data, isLoading, isFetching } = useQuery(['userProperties', userId], () => propByUserId(userId), {
+  const { data, isLoading, isFetching } = useQuery(['userProperties', userId], () => apiPropertyByUserId(userId), {
     onError: err => {
       console.error(err)
       alert('Tampaknya ada kesalahan saat mengambil data dari pengguna')

@@ -6,7 +6,7 @@ import { IoCloudDoneOutline, IoCloudDownloadOutline } from 'react-icons/io5'
 interface Props {
   propertyLength: number
   searchValue: string
-  isFetching: boolean
+  isFetching?: boolean
   setSearchValue: Dispatch<SetStateAction<string>>
 }
 

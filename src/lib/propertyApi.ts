@@ -38,7 +38,7 @@ export async function getPropertyById(propertyId: string) {
   }
 }
 
-export async function getPropertyByUserId(userId: string) {
+export async function apiPropertyByUserId(userId: string) {
   try {
     return await fetcher({ route: `/d/property/u/${userId}`, method: 'get' })
   } catch (err) {
