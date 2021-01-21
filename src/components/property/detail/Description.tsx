@@ -6,13 +6,8 @@ import LazyLoad from 'react-lazyload'
 
 const Description = ({ description }: Pick<Property, 'description'>) => {
   return (
-    <div className="section mt-3 mb-4">
+    <div className="section my-2">
       <Container>
-        <Row>
-          <Col as="h2">
-            Deskripsi <span className="divider"></span>
-          </Col>
-        </Row>
         <Card className="h-100 w-100">
           <LazyLoad once height={100} offset={50}>
             <Card.Body className="text-justify">
