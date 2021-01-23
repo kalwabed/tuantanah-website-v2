@@ -15,7 +15,6 @@ const PropertySummary = (props: Props) => {
   const { location, price, size, status, title, updatedAt } = props
 
   const PropertyUpdatedAt = ({ updatedAt }: { updatedAt: Date }) => {
-    console.log(updatedAt)
     return <>{format(updatedAt, 'd MMMM yyy | HH:mm', { locale: id })} WIB</>
   }
 

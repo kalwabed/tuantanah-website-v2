@@ -42,7 +42,7 @@ const About = (props: Property) => {
                   title={title}
                   updatedAt={new Date(updatedAt)}
                 />
-                <DealerProfile fullName={userId.fullName} />
+                <DealerProfile fullName={userId.fullName} _id={userId._id} />
               </Card.Body>
             </Card>
           </Col>

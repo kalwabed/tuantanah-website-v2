@@ -3,6 +3,7 @@ const GlobalStyle = () => {
     <style jsx global>{`
       body {
         margin: 0;
+        min-height: 100vh;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Ubuntu, Inter, Roboto, 'Noto sans', sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
@@ -110,4 +111,44 @@ const GlobalStyle = () => {
     `}</style>
   )
 }
+
+export const NProgressStyle = () => {
+  return (
+    <style jsx global>
+      {`
+        #nprogress {
+          pointer-events: none;
+        }
+
+        #nprogress .bar {
+          background: #28a745;
+
+          position: fixed;
+          z-index: 1031;
+          top: 0;
+          left: 0;
+
+          width: 100%;
+          height: 2px;
+        }
+
+        /* Fancy blur effect */
+        #nprogress .peg {
+          display: block;
+          position: absolute;
+          right: 0px;
+          width: 100px;
+          height: 100%;
+          box-shadow: 0 0 10px #28a745, 0 0 5px #28a745;
+          opacity: 1;
+
+          -webkit-transform: rotate(3deg) translate(0px, -4px);
+          -ms-transform: rotate(3deg) translate(0px, -4px);
+          transform: rotate(3deg) translate(0px, -4px);
+        }
+      `}
+    </style>
+  )
+}
+
 export default GlobalStyle

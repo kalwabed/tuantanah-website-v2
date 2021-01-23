@@ -5,8 +5,8 @@ import sdk from '@/sdk/property'
 import PropertyList from '@/components/property/List'
 import SearchBar from '@/components/property/SearchBar'
 import AuthLoader from '@/shared/AuthLoader'
-import { Property } from '@/shared/interface'
 import searchProperty from '@/helpers/searchProperty'
+import PropertiesNotFound from '@/shared/PropertiesNotFound'
 
 const PropertyPage = () => {
   const { properties, isFetching, isLoading } = sdk.getAllProperties()
@@ -23,9 +23,9 @@ const PropertyPage = () => {
             searchValue={searchValue}
           />
           {isLoading && <AuthLoader />}
-          {!filteredProperties?.length && !isLoading && (
-            <span className="my-2 py-3">Tidak ada properti yang ditemukan dengan kata kunci "{searchValue}"</span>
-          )}
+
+          {!filteredProperties?.length && !isLoading && <PropertiesNotFound payload={searchValue} />}
+
           {filteredProperties && <PropertyList properties={filteredProperties} />}
         </Container>
       </div>

@@ -7,15 +7,20 @@ import { ReactQueryDevtools } from 'react-query/devtools'
 import { QueryCache, QueryClient, QueryClientProvider } from 'react-query'
 import { Toaster } from 'react-hot-toast'
 import AuthContext from '@/contexts/AuthContext'
-import GlobalStyle from '@/utils/GlobalStyle'
+import GlobalStyle, { NProgressStyle } from '@/components/GlobalStyle'
+import NProgress from 'nprogress'
 import { DefaultSeo } from 'next-seo'
+import Router from 'next/router'
 import seo from 'next-seo.config'
+
+Router.events.on('routeChangeStart', () => NProgress.start())
+Router.events.on('routeChangeComplete', () => NProgress.done())
+Router.events.on('routeChangeError', () => NProgress.done())
 
 function MyApp({ Component, pageProps }: AppProps) {
   const queryCache = new QueryCache()
   const queryClient = new QueryClient({ queryCache: queryCache })
 
-  // TODO: create page that contains only
   return (
     <>
       <Head>
@@ -32,6 +37,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <AuthContext.Provider>
           <DefaultSeo {...seo} />
           <GlobalStyle />
+          <NProgressStyle />
           <Component {...pageProps} />
         </AuthContext.Provider>
         <Toaster toastOptions={{ duration: 5000 }} />
