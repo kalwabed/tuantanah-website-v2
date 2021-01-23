@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { Navbar, Container, Button, Nav, Dropdown, DropdownButton } from 'react-bootstrap'
@@ -23,7 +22,7 @@ const Header = () => {
       <Container>
         <Link href="/">
           <a>
-            <Navbar.Brand className="pointer">
+            <Navbar.Brand>
               <img src="/static/logo.png" alt="logo" className="d-inline-block" width="22" height="22" />
               <span style={{ marginLeft: '2px' }} className="logo-font">
                 tuantanah
@@ -49,11 +48,6 @@ const Header = () => {
           <UserButton fullName={user?.fullName} cookie={useCookie('get')} handleLogout={handleLogout} />
         </Navbar.Collapse>
       </Container>
-      <style jsx>{`
-        .pointer {
-          cursor: pointer;
-        }
-      `}</style>
     </Navbar>
   )
 }

@@ -1,6 +1,6 @@
 {
-  "name": "next-tuantanah",
-  "version": "0.1.0",
+  "name": "tuantanah",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "dev": "next",
@@ -17,6 +17,7 @@
     "jsonwebtoken": "^8.5.1",
     "next": "10.0.5",
     "next-seo": "^4.17.0",
+    "nprogress": "^0.2.0",
     "pell": "^1.0.6",
     "react": "17.0.1",
     "react-awesome-reveal": "^3.5.2",

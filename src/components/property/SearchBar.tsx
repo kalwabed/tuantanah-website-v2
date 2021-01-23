@@ -6,7 +6,7 @@ import { IoCloudDoneOutline, IoCloudDownloadOutline } from 'react-icons/io5'
 interface Props {
   propertyLength: number
   searchValue: string
-  isFetching: boolean
+  isFetching?: boolean
   setSearchValue: Dispatch<SetStateAction<string>>
 }
 
@@ -37,7 +37,7 @@ const SearchBar = (props: Props) => {
           </InputGroup>
         </Col>
         <Col md="auto" className="d-sm-flex d-md-block justify-content-center">
-          <Badge variant="outline-light">Ditemukan {propertyLength} properti</Badge>
+          <Badge variant="outline-light">Ditemukan {propertyLength || 0} properti</Badge>
           <Badge variant="outline-light" className="ml-1">
             <img src="/static/logo.png" alt="logo" width="20" height="20" />
           </Badge>

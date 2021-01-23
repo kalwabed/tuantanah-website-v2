@@ -32,13 +32,13 @@ export async function getPid() {
 
 export async function getPropertyById(propertyId: string) {
   try {
-    return await fetcher({ route: `/d/property/${propertyId}`, method: 'get' })
+    return await fetcher({ route: `/v/property/${propertyId}`, method: 'get' })
   } catch (err) {
     console.error(err)
   }
 }
 
-export async function getPropertyByUserId(userId: string) {
+export async function apiPropertyByUserId(userId: string) {
   try {
     return await fetcher({ route: `/d/property/u/${userId}`, method: 'get' })
   } catch (err) {

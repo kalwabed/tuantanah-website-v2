@@ -1,22 +1,16 @@
-import { Container, Spinner } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 
 import Layout from '@/components/layout/LandingPage'
 import sdk from '@/sdk/property'
 import PropertyList from '@/components/property/List'
 import SearchBar from '@/components/property/SearchBar'
-import { useState } from 'react'
 import AuthLoader from '@/shared/AuthLoader'
+import searchProperty from '@/helpers/searchProperty'
+import PropertiesNotFound from '@/shared/PropertiesNotFound'
 
-const Property = () => {
-  const [searchValue, setSearchValue] = useState('')
-
+const PropertyPage = () => {
   const { properties, isFetching, isLoading } = sdk.getAllProperties()
-
-  const filteredProperties =
-    properties &&
-    properties
-      .sort((a, b) => Number(new Date(b.createdAt)) - Number(new Date(a.createdAt)))
-      .filter(property => property.location.display.toLowerCase().includes(searchValue.toLowerCase()))
+  const { filteredProperties, searchValue, setSearchValue } = searchProperty({ properties })
 
   return (
     <Layout title="Properti">
@@ -29,9 +23,9 @@ const Property = () => {
             searchValue={searchValue}
           />
           {isLoading && <AuthLoader />}
-          {!filteredProperties?.length && !isLoading && (
-            <span className="my-2 py-3">Tidak ada properti yang ditemukan dengan kata kunci "{searchValue}"</span>
-          )}
+
+          {!filteredProperties?.length && !isLoading && <PropertiesNotFound payload={searchValue} />}
+
           {filteredProperties && <PropertyList properties={filteredProperties} />}
         </Container>
       </div>
@@ -39,4 +33,4 @@ const Property = () => {
   )
 }
 
-export default Property
+export default PropertyPage
