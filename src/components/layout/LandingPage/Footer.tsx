@@ -5,7 +5,7 @@ import { IoLogoGithub, IoLogoInstagram } from 'react-icons/io'
 
 const Footer = () => {
   return (
-    <footer className="footer position-relative bg-dark text-light">
+    <footer className="footer bg-dark text-light">
       <Container>
         <Row>
           <Col md={4}>
