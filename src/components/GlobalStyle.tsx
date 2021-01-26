@@ -3,7 +3,9 @@ const GlobalStyle = () => {
     <style jsx global>{`
       body {
         margin: 0;
-        min-height: 100vh;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Ubuntu, Inter, Roboto, 'Noto sans', sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
@@ -36,8 +38,10 @@ const GlobalStyle = () => {
       }
 
       .footer {
+        min-height: 50px;
+        margin-top: auto;
         padding-top: 8rem;
-        padding-bottom: 2rem;
+        padding-bottom: 3rem;
       }
 
       .link-footer {
