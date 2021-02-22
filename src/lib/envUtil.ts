@@ -8,8 +8,7 @@ export const useCookie = (mode: 'set' | 'get' | 'remove', value?: any) => {
       cookie.set(COOKIE_KEY, value, { expires: COOKIE_EXP, secure: process.env.NODE_ENV === 'production' })
       break
     case 'get':
-      const get = cookie.get(COOKIE_KEY)
-      return get
+      return cookie.get(COOKIE_KEY)
     case 'remove':
       cookie.remove(COOKIE_KEY)
       break
