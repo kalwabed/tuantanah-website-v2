@@ -8,7 +8,11 @@ const useAuth = () => {
 
   const redirectPaths = ['/login', '/signup']
   function checkUserSession() {
-    if (isDashboard && !useCookie('get')) {
+    if (useLocalStorage('get') && !useCookie('get')) {
+      // if user already login but the session is already gone
+      useLocalStorage('remove')
+      router.push('/login')
+    } else if (isDashboard && !useCookie('get')) {
       // if user is in the dashboard and token is expire
       router.push('/login')
     } else if (useCookie('get') && redirectPaths.includes(router.asPath)) {
@@ -20,7 +24,12 @@ const useAuth = () => {
     }
   }
 
-  const userSignOut = (redirectPath = '') => {
+  /**
+   *
+   * @param redirectPath string
+   * @default '/login'
+   */
+  const userSignOut = (redirectPath = '/login') => {
     useCookie('remove')
     useLocalStorage('remove')
     router.replace(redirectPath || router.asPath)

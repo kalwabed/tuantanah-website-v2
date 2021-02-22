@@ -9,7 +9,7 @@ export const setUserCred = (userToken: string) => {
   // set user session and user credentials.
   // don't using this method, I couldn't recommend to implement on real apps
   useCookie('set', v4()) // as session
-  useLocalStorage('set', token)
+  useLocalStorage('set', token) // as user information (using JWT)
 }
 
 export const useLogin = () => {

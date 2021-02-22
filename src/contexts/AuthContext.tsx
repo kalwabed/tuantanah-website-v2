@@ -12,7 +12,7 @@ export interface AuthCtx {
 const AuthContext = createContext<AuthCtx | undefined>(undefined)
 
 const Provider = ({ children }) => {
-  const { checkUserSession } = useAuth()
+  const { checkUserSession, userSignOut } = useAuth()
 
   function getUserCred() {
     if (typeof window === 'undefined') return null
@@ -22,10 +22,11 @@ const Provider = ({ children }) => {
     if (!token) return null
 
     const verified = jwt.verify(token, process.env.NEXT_PUBLIC_JWT_SECRET) as UserCredential
+
     if (verified) {
       return verified
     } else {
-      throw new Error('JWT error while get user cred')
+      userSignOut()
     }
   }
 
