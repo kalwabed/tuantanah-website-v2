@@ -3199,9 +3199,9 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"react-bootstrap@npm:^1.4.0":
-  version: 1.4.3
-  resolution: "react-bootstrap@npm:1.4.3"
+"react-bootstrap@npm:^1.5.0":
+  version: 1.5.0
+  resolution: "react-bootstrap@npm:1.5.0"
   dependencies:
     "@babel/runtime": ^7.4.2
     "@restart/context": ^2.1.4
@@ -3217,14 +3217,14 @@ fsevents@~2.3.1:
     invariant: ^2.2.4
     prop-types: ^15.7.2
     prop-types-extra: ^1.1.0
-    react-overlays: ^4.1.0
+    react-overlays: ^4.1.1
     react-transition-group: ^4.4.1
     uncontrollable: ^7.0.0
     warning: ^4.0.3
   peerDependencies:
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
-  checksum: 0565b35a92fff4f1b3a486bae2b437145e44a27f7c66860b6a53fe15f3cd31a259c1238bfcedb83c04ed511d2875f267c9ae5fb2b6837624544f56e83f452a8e
+  checksum: 295a675eadfb7a8a91d01bb86dbdb353dd72008b0ee2e5bf2043dac5c270fbbaa17d3b0a1ab5bf5f01baff708d02ffd607f6e55e55a4cd588bbfde242270cb4c
   languageName: node
   linkType: hard
 
@@ -3325,7 +3325,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"react-overlays@npm:^4.1.0":
+"react-overlays@npm:^4.1.1":
   version: 4.1.1
   resolution: "react-overlays@npm:4.1.1"
   dependencies:
@@ -4193,7 +4193,7 @@ fsevents@~2.3.1:
     pell: ^1.0.6
     react: 17.0.1
     react-awesome-reveal: ^3.5.2
-    react-bootstrap: ^1.4.0
+    react-bootstrap: ^1.5.0
     react-dom: 17.0.1
     react-hook-form: ^6.14.0
     react-hot-toast: ^1.0.1

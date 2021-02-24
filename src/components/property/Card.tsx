@@ -21,7 +21,7 @@ const CardImage = (props: { src: string; className?: string }) => (
   />
 )
 
-const PropertyCard: React.FC<Property> = ({ title, mainPicture, location, size, status, _id }) => {
+const PropertyCard: React.FC<Property> = ({ title, mainPicture, location, size, status, _id, price }) => {
   const breakpoint = useBreakpoints()
   const { soldOut } = status
 
@@ -45,7 +45,7 @@ const PropertyCard: React.FC<Property> = ({ title, mainPicture, location, size, 
           )}
         </Card.ImgOverlay>
       )}
-      <CardBody location={location} title={title} size={size} status={status} _id={_id} />
+      <CardBody location={location} title={title} size={size} status={status} _id={_id} price={price} />
     </Card>
   )
 }
