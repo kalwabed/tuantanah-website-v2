@@ -24,7 +24,7 @@ const PropertyDetail = ({ property }: Props) => {
       <About {...property} />
       <Gallery gallery={property.gallery} />
       <Description description={property.description} />
-      <Contacts contact={property.contact} />
+      <Contacts contact={property.contact} title={property.title} />
     </Layout>
   )
 }

@@ -7,7 +7,7 @@ interface Props {
   size: { display: string }
   title: string
   location: { display: string }
-  price: string
+  price: number
   status: {
     shm: number
     negotiation: boolean
