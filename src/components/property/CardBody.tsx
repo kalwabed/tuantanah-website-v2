@@ -7,6 +7,7 @@ interface Props {
   size: { display: string }
   title: string
   location: { display: string }
+  price: number
   status: {
     shm: number
     negotiation: boolean
@@ -15,7 +16,7 @@ interface Props {
 }
 
 const CardBody = (props: Props) => {
-  const { location, size, title, status, _id } = props
+  const { location, size, title, status, _id, price } = props
   return (
     <Card.Body className="pt-2 font-card">
       <div className="d-md-flex justify-content-between">
@@ -24,16 +25,17 @@ const CardBody = (props: Props) => {
           <StatusPropertyCheck {...status} />
         </div>
       </div>
-      {!status.soldOut ? (
+      {status.soldOut ? (
+        <Card.Text className="h6 font-weight-bold">{title}</Card.Text>
+      ) : (
         <Link href={`/property/${_id}`}>
           <a style={{ color: '#212529' }}>
             <Card.Text className="h6 font-weight-bold stretched-link text-reset">{title}</Card.Text>
           </a>
         </Link>
-      ) : (
-        <Card.Text className="h6 font-weight-bold">{title}</Card.Text>
       )}
-      <Card.Text className="mt-2 font-small">{location.display.split(',')[1]}</Card.Text>
+      <Card.Text className="my-2">Rp. {price} juta</Card.Text>
+      <Card.Text className="font-small">{location.display.split(',')[1]}</Card.Text>
     </Card.Body>
   )
 }

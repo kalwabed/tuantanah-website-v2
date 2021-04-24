@@ -3,7 +3,7 @@ import { AiOutlineWhatsApp, AiOutlineFacebook, AiOutlineMail } from 'react-icons
 import LazyLoad from 'react-lazyload'
 import { Property } from '@/shared/interface'
 
-const Contacts = ({ contact }: Pick<Property, 'contact'>) => {
+const Contacts = ({ contact, title }: Pick<Property, 'contact' | 'title'>) => {
   return (
     <div className="section my-2">
       <Container>
@@ -17,7 +17,7 @@ const Contacts = ({ contact }: Pick<Property, 'contact'>) => {
                     {contact.type === 1 ? (
                       <>
                         <AiOutlineWhatsApp size="1.2em" />
-                        <a href={`https://wa.me/${contact.url}`} className="newlink ml-1">
+                        <a href={messageFormatter({ contact, propertyTitle: title })} className="newlink ml-1">
                           {contact.name}
                         </a>
                       </>
@@ -45,6 +45,19 @@ const Contacts = ({ contact }: Pick<Property, 'contact'>) => {
       </Container>
     </div>
   )
+}
+
+interface MsgFmt {
+  propertyTitle: string
+  contact: { name: string; url: string }
+}
+
+function messageFormatter({ contact, propertyTitle }: MsgFmt) {
+  const API = `https://wa.me/${contact.url}`
+  const message = `Hai, ${contact.name}.
+Saya tertarik dengan properti *${propertyTitle}* milik Anda yang saya temukan di platform *tuantanah*. Saya akan sangat senang jika kita bisa bicarakan ini lebih lanjut.`
+
+  return `${API}?text=${encodeURI(message)}`
 }
 
 export default Contacts

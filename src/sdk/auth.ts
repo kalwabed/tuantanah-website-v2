@@ -15,7 +15,7 @@ export const setUserCred = (userToken: string) => {
 export const useLogin = () => {
   const { data, mutateAsync, isLoading } = useMutation(userLogin, {
     onSuccess: res => {
-      setUserCred(res.token)
+      if (res.token) setUserCred(res.token)
     }
   })
   return { mutateUser: mutateAsync, user: data, isLoading }
