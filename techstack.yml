@@ -1,0 +1,331 @@
+repo_name: kalwabed/tuantanah-website-v2
+report_id: 05c80ea240268ae84a0714d38391aa7d
+repo_type: Public
+timestamp: '2023-11-10T13:17:17+00:00'
+requested_by: kalwabed
+provider: github
+branch: main
+detected_tools_count: 23
+tools:
+- name: JavaScript
+  description: Lightweight, interpreted, object-oriented language with first-class
+    functions
+  website_url: https://developer.mozilla.org/en-US/docs/Web/JavaScript
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/1209/javascript.jpeg
+  detection_source: Repo Metadata
+- name: TypeScript
+  description: A superset of JavaScript that compiles to clean JavaScript output
+  website_url: http://www.typescriptlang.org
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/1612/bynNY5dJ.jpg
+  detection_source: Repo Metadata
+- name: Bootstrap
+  description: Simple and flexible HTML, CSS, and JS for popular UI components and
+    interactions
+  website_url: http://getbootstrap.com/
+  version: 4.6.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Front-End Frameworks
+  image_url: https://img.stackshare.io/service/1101/C9QJ7V3X.png
+  detection_source_url: yarn.lock
+  detection_source: package.json
+  last_updated_by: Kalwabed Rizki
+  last_updated_on: 2021-04-24 04:16:13.000000000 Z
+- name: Next.js
+  description: 'A small framework for server-rendered universal JavaScript apps '
+  website_url: https://nextjs.org/
+  version: 10.1.3
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Frameworks (Full Stack)
+  image_url: https://img.stackshare.io/service/5936/nextjs.png
+  detection_source_url: yarn.lock
+  detection_source: package.json
+  last_updated_by: kalwabed
+  last_updated_on: 2021-01-07 02:51:51.000000000 Z
+- name: Node.js
+  description: A platform built on Chrome's JavaScript runtime for easily building
+    fast, scalable network applications
+  website_url: http://nodejs.org/
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Frameworks (Full Stack)
+  image_url: https://img.stackshare.io/service/1011/n1JRsFeB_400x400.png
+  detection_source: package.json
+  last_updated_by: kalwabed
+  last_updated_on: 2021-01-07 02:51:51.000000000 Z
+- name: React
+  description: A JavaScript library for building user interfaces
+  website_url: https://reactjs.org/
+  version: 17.0.1
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Javascript UI Libraries
+  image_url: https://img.stackshare.io/service/1020/OYIaJ1KK.png
+  detection_source_url: yarn.lock
+  detection_source: package.json
+  last_updated_by: Kalwabed Rizki
+  last_updated_on: 2021-04-24 04:16:13.000000000 Z
+- name: Git
+  description: Fast, scalable, distributed revision control system
+  website_url: http://git-scm.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Version Control System
+  image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source: Repo Metadata
+- name: Yarn
+  description: A new package manager for JavaScript
+  website_url: https://yarnpkg.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Front End Package Manager
+  image_url: https://img.stackshare.io/service/5848/44mC-kJ3.jpg
+  detection_source: yarn.lock
+  last_updated_by: kalwabed
+  last_updated_on: 2021-01-07 02:51:51.000000000 Z
+- name: npm
+  description: The package manager for JavaScript.
+  website_url: https://www.npmjs.com/
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Front End Package Manager
+  image_url: https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png
+  detection_source: package.json
+  last_updated_by: kalwabed
+  last_updated_on: 2021-01-07 02:51:51.000000000 Z
+- name: Shell
+  description: A shell is a text-based terminal, used for manipulating programs and
+    files. Shell scripts typically manage program execution.
+  website_url: https://en.wikipedia.org/wiki/Shell_script
+  open_source: false
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/4631/default_c2062d40130562bdc836c13dbca02d318205a962.png
+  detection_source: Repo Metadata
+- name: date-fns
+  description: Modern JavaScript date utility library
+  website_url: https://date-fns.org/
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Javascript Utilities & Libraries
+  image_url: https://img.stackshare.io/service/10865/default_5551fb8853689f607a2bc0d5a09355d5a3d52bf0.png
+  detection_source: package.json
+  last_updated_by: kalwabed
+  last_updated_on: 2021-01-11 02:52:23.000000000 Z
+- name: "@types/jsonwebtoken"
+  description: TypeScript definitions for jsonwebtoken
+  package_url: https://www.npmjs.com/@types/jsonwebtoken
+  version: 8.5.1
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16959/default_caea01ce44a5fd1bb200d8fc0f8f2a1695b4e569.png
+  detection_source_url: yarn.lock
+  detection_source: package.json
+  last_updated_by: Kalwabed Rizki
+  last_updated_on: 2021-04-24 04:16:13.000000000 Z
+- name: "@types/node"
+  description: TypeScript definitions for Node.js
+  package_url: https://www.npmjs.com/@types/node
+  version: 14.14.41
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15809/default_5e5e8ac63beda29f31f1844df64d4b8247570a66.png
+  detection_source_url: yarn.lock
+  detection_source: package.json
+  last_updated_by: Kalwabed Rizki
+  last_updated_on: 2021-04-24 04:16:13.000000000 Z
+- name: "@types/react"
+  description: TypeScript definitions for React
+  package_url: https://www.npmjs.com/@types/react
+  version: 17.0.3
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15894/default_1d65e37e65b7f80761374f0202776043277d505d.png
+  detection_source_url: yarn.lock
+  detection_source: package.json
+  last_updated_by: Kalwabed Rizki
+  last_updated_on: 2021-04-24 04:16:13.000000000 Z
+- name: "@types/uuid"
+  description: TypeScript definitions for uuid
+  package_url: https://www.npmjs.com/@types/uuid
+  version: 8.3.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16257/default_ab17554b7e80af3d234b14168ed61e75d43f8eee.png
+  detection_source_url: yarn.lock
+  detection_source: package.json
+  last_updated_by: Kalwabed Rizki
+  last_updated_on: 2021-04-24 04:16:13.000000000 Z
+- name: js-cookie
+  description: A simple, lightweight JavaScript API for handling cookies
+  package_url: https://www.npmjs.com/js-cookie
+  version: 2.2.1
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16441/default_89ba91277e3434b03295bb11d22736632df1d04f.png
+  detection_source_url: yarn.lock
+  detection_source: package.json
+  last_updated_by: kalwabed
+  last_updated_on: 2021-01-07 04:22:33.000000000 Z
+- name: jsonwebtoken
+  description: JSON Web Token implementation
+  package_url: https://www.npmjs.com/jsonwebtoken
+  version: 8.5.1
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16155/default_77b54a203c743d16eddb6b6390cba17218454fa0.png
+  detection_source_url: yarn.lock
+  detection_source: package.json
+  last_updated_by: kalwabed
+  last_updated_on: 2021-01-07 04:22:33.000000000 Z
+  vulnerabilities:
+  - name: jsonwebtoken has insecure input validation in jwt.verify function
+    cve_id: CVE-2022-23529
+    cve_url: https://github.com/advisories/GHSA-27h2-hvpr-p74q
+    detected_date: Dec 22
+    severity: high
+    first_patched: 9.0.0
+  - name: 'jsonwebtoken unrestricted key type could lead to legacy keys usage '
+    cve_id: CVE-2022-23539
+    cve_url: https://github.com/advisories/GHSA-8cf7-32gw-wr33
+    detected_date: Dec 22
+    severity: moderate
+    first_patched: 9.0.0
+  - name: jsonwebtoken vulnerable to signature validation bypass due to insecure default
+      algorithm in jwt.verify()
+    cve_id: CVE-2022-23540
+    cve_url: https://github.com/advisories/GHSA-qwph-4952-7xr6
+    detected_date: Dec 22
+    severity: moderate
+    first_patched: 9.0.0
+  - name: jsonwebtoken's insecure implementation of key retrieval function could lead
+      to Forgeable Public/Private Tokens from RSA to HMAC
+    cve_id: CVE-2022-23541
+    cve_url: https://github.com/advisories/GHSA-hjrf-2m68-5959
+    detected_date: Dec 22
+    severity: moderate
+    first_patched: 9.0.0
+- name: nprogress
+  description: Simple slim progress bars
+  package_url: https://www.npmjs.com/nprogress
+  version: 0.2.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/17061/default_23002b02644a8cb313a0f53f43df271731022a9e.png
+  detection_source_url: yarn.lock
+  detection_source: package.json
+  last_updated_by: Kalwabed Rizki
+  last_updated_on: 2021-01-23 02:16:43.000000000 Z
+- name: react-bootstrap
+  description: Bootstrap 3 components built with React
+  package_url: https://www.npmjs.com/react-bootstrap
+  version: 1.5.2
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16383/default_92302d1bbf4c0f67b862869662b4f69002c94aad.png
+  detection_source_url: yarn.lock
+  detection_source: package.json
+  last_updated_by: Kalwabed Rizki
+  last_updated_on: 2021-04-24 04:16:13.000000000 Z
+- name: react-dom
+  description: React package for working with the DOM
+  package_url: https://www.npmjs.com/react-dom
+  version: 17.0.1
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15808/default_14fd11531839d935f920b6d55bd6f3528c890ad7.png
+  detection_source_url: yarn.lock
+  detection_source: package.json
+  last_updated_by: Kalwabed Rizki
+  last_updated_on: 2021-04-24 04:16:13.000000000 Z
+- name: react-icons
+  description: SVG React icons of popular icon packs using ES6 imports
+  package_url: https://www.npmjs.com/react-icons
+  version: 4.2.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16909/default_7b9968788548874538c601457e8dcd9c74bd2051.png
+  detection_source_url: yarn.lock
+  detection_source: package.json
+  last_updated_by: Kalwabed Rizki
+  last_updated_on: 2021-04-24 04:16:13.000000000 Z
+- name: react-markdown
+  description: Renders Markdown as React components
+  package_url: https://www.npmjs.com/react-markdown
+  version: 5.0.3
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/17056/default_d17bbf7e4f3b102e29ff09c01b8165e7ba600319.png
+  detection_source_url: yarn.lock
+  detection_source: package.json
+  last_updated_by: Kalwabed Rizki
+  last_updated_on: 2021-04-24 04:16:13.000000000 Z
+- name: uuid
+  description: RFC4122
+  package_url: https://www.npmjs.com/uuid
+  version: 8.3.2
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15916/default_e0a4fb1126d7400f419f0931cf1669947a5bc552.png
+  detection_source_url: yarn.lock
+  detection_source: package.json
+  last_updated_by: kalwabed
+  last_updated_on: 2021-01-07 04:22:33.000000000 Z
